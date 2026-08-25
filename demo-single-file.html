@@ -210,10 +210,10 @@ ul{list-style:none;padding:0}
 select.field{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B746D' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .chk{display:flex;align-items:center;gap:10px;min-height:42px;font-size:15px;line-height:1.2;cursor:pointer}
-.chk input{position:relative;width:20px;height:20px;flex:0 0 20px;margin:0;-webkit-appearance:none;appearance:none;border:2px solid var(--line2);border-radius:6px;background:var(--surf);cursor:pointer;transition:background .15s,border-color .15s}
+.chk input{position:relative;width:19px;height:19px;flex:0 0 19px;margin:0;-webkit-appearance:none;appearance:none;border:1px solid var(--line2);border-radius:5px;background:var(--surf);cursor:pointer;transition:background .14s,border-color .14s}
 .chk:hover input{border-color:var(--action)}
 .chk input:checked{background:var(--action);border-color:var(--action)}
-.chk input::after{content:"";position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid var(--on);border-width:0 2px 2px 0;transform:rotate(45deg);opacity:0;transition:opacity .12s}
+.chk input::after{content:"";position:absolute;inset:0;background:var(--on);opacity:0;transition:opacity .12s;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.2 4.2L18.5 8'/%3E%3C/svg%3E") center/12px 12px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.2 4.2L18.5 8'/%3E%3C/svg%3E") center/12px 12px no-repeat}
 .chk input:checked::after{opacity:1}
 .f-act{display:grid;gap:4px;margin-top:8px}
 .link-btn{min-height:44px;border:0;background:transparent;color:var(--soft);font-size:14px;cursor:pointer;border-radius:999px}
