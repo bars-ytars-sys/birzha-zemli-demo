@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог участков и готового бизнеса, Биржа-Земли</title>
+<meta name="description" content="Участки под базы отдыха и глэмпинги, готовый бизнес, аукционы и строящиеся объекты по всей России.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="index.html"><b>Биржа-Земли</b><span>Земля для туризма</span></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="catalog.html">Объекты</a>
+      <a href="catalog.html#auction">Аукционы</a>
+      <a href="catalog.html#business">Готовый бизнес</a>
+      <a href="check.html">Проверка земли</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="ico" id="theme" type="button" aria-label="Переключить тему">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="btn btn-p hdr-cta" href="index.html#place">Разместить участок</a>
+      <button class="ico burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnu" id="mnu">
+  <a href="catalog.html">Объекты</a>
+  <a href="catalog.html#auction">Аукционы</a>
+  <a href="catalog.html#business">Готовый бизнес</a>
+  <a href="check.html">Проверка земли</a>
+  <a class="btn btn-p" href="index.html#place">Разместить участок</a>
+</div>
+
+
+<main id="top">
+<section class="zone" aria-labelledby="cat-h">
+  <div class="wrap">
+    <p class="kick">Каталог</p>
+    <h1 class="h2" id="cat-h">Объекты на площадке</h1>
+    <p class="sub">30 объявления в шести регионах. Счётчик просмотров и показов телефона работает на каждой карточке, порядок выдачи считается по трём правилам.</p>
+    <div class="tabs" role="tablist" aria-label="Категории" style="margin-top:24px"><button class="tab" role="tab" data-type="all" aria-selected="true">Все объекты</button><button class="tab" role="tab" data-type="uchastok" aria-selected="false">Участки</button><button class="tab" role="tab" data-type="business" aria-selected="false">Готовый бизнес</button><button class="tab" role="tab" data-type="auction" aria-selected="false">Аукционы</button><button class="tab" role="tab" data-type="stroy" aria-selected="false">Строящиеся</button></div>
+    <div class="chips"><button class="chip" type="button" data-tag="У воды" aria-pressed="false">У воды</button><button class="chip" type="button" data-tag="Электричество" aria-pressed="false">Электричество</button><button class="chip" type="button" data-tag="Лес" aria-pressed="false">Лес</button><button class="chip" type="button" data-tag="Подъезд круглый год" aria-pressed="false">Подъезд круглый год</button><button class="chip" type="button" data-tag="Готовый бизнес" aria-pressed="false">Готовый бизнес</button><button class="chip" type="button" data-tag="Аукцион" aria-pressed="false">Аукцион</button></div>
+    <div class="veil" id="veil"></div>
+<div class="layout">
+  <aside class="filters" id="filters" aria-label="Фильтры">
+    <div class="f-top"><h3>Фильтры</h3>
+      <button class="f-close" id="f-close" type="button" aria-label="Закрыть фильтры"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="fg"><label for="f-reg">Регион</label>
+      <select class="field" id="f-reg"><option>Вся Россия</option><option>Вологодская область</option><option>Костромская область</option><option>Ленинградская область</option><option>Новгородская область</option><option>Псковская область</option><option>Республика Карелия</option><option>Тверская область</option><option>Ярославская область</option></select></div>
+    <div class="fg"><label for="f-use">Назначение</label>
+      <select class="field" id="f-use"><option>Любое</option><option>Рекреация</option><option>Туристическое обслуживание</option><option>ИЖС</option><option>Сельхоз, СХ-3</option></select></div>
+    <div class="fg"><label>Цена, ₽</label><div class="two"><input class="field" inputmode="numeric" placeholder="от" aria-label="Цена от"><input class="field" inputmode="numeric" placeholder="до" aria-label="Цена до"></div></div>
+    <div class="fg"><label>Площадь, соток</label><div class="two"><input class="field" inputmode="numeric" placeholder="от" aria-label="Площадь от"><input class="field" inputmode="numeric" placeholder="до" aria-label="Площадь до"></div></div>
+    <div class="fg">
+      <label class="chk"><input type="checkbox"> Только проверенные</label>
+      <label class="chk"><input type="checkbox"> С электричеством</label>
+      <label class="chk"><input type="checkbox"> Круглогодичный подъезд</label>
+      <label class="chk"><input type="checkbox"> Грантовый потенциал</label>
+    </div>
+    <div class="f-act">
+      <button class="btn btn-p btn-w" type="button">Показать объекты</button>
+      <button class="link-btn" id="reset" type="button">Сбросить фильтры</button>
+    </div>
+  </aside>
+      <div>
+        <div class="rhead">
+          <h2 style="font-size:20px">Найденные объекты<span class="cnt" id="found">найдено 30</span></h2>
+          <div class="rtools">
+            <button class="btn btn-s f-open" id="f-open" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> Фильтры</button>
+            <select class="sel" id="sort" aria-label="Сортировка">
+              <option value="rec">Сначала рекомендуемые</option><option value="new">Сначала новые</option>
+              <option value="cheap">Дешевле</option><option value="exp">Дороже</option><option value="views">Больше просмотров</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid" id="grid"><article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес У воды" data-price="9800000" data-views="873" data-days="1" data-rank="96">
+  <a class="ph" href="object/pryazha-baza.html">
+    <img src="img/p6.webp" width="560" height="385" alt="Готовая база отдыха 3 га: шесть домов и причал" loading="lazy">
+    <span class="badge gold">Приоритет</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">9 800 000 ₽ <span>3,1 млн ₽ выручки за прошлый сезон</span></p>
+    <h3 class="ttl"><a href="object/pryazha-baza.html">Готовая база отдыха 3 га: шесть домов и причал</a></h3>
+    <p class="meta">300 соток · 3 га · Республика Карелия, Пряжинский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>У воды</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="873">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>96</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="40,47,43,50,46,53,49" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="У воды Электричество" data-price="8700000" data-views="432" data-days="2" data-rank="90">
+  <a class="ph" href="object/konakovo-zaliv.html">
+    <img src="img/gen/zaliv.webp" width="560" height="385" alt="Участок 3 га на берегу залива с камышом" loading="lazy">
+    <span class="badge gold">Приоритет</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">8 700 000 ₽ <span>29 000 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/konakovo-zaliv.html">Участок 3 га на берегу залива с камышом</a></h3>
+    <p class="meta">300 соток · 3 га · Тверская область, Конаковский</p>
+    <ul class="tags"><li>У воды</li><li>Электричество</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="432">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>54</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="19,25,31,26,32,38,33" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="У воды Электричество" data-price="4200000" data-views="347" data-days="4" data-rank="78">
+  <a class="ph" href="object/ostashkov-glamping.html">
+    <img src="img/p1.webp" width="560" height="385" alt="Участок 0,8 га на первой линии у озера под глэмпинг" loading="lazy">
+    <span class="badge gold">Приоритет</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">4 200 000 ₽ <span>52 500 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/ostashkov-glamping.html">Участок 0,8 га на первой линии у озера под глэмпинг</a></h3>
+    <p class="meta">80 соток · Тверская область, Осташковский</p>
+    <ul class="tags"><li>У воды</li><li>Электричество</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="347">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>89</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="18,25,21,28,24,31,27" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Лес Подъезд круглый год" data-price="12500000" data-views="511" data-days="1" data-rank="62">
+  <a class="ph" href="object/valday-turbaza.html">
+    <img src="img/p2.webp" width="560" height="385" alt="Участок 6 га под турбазу, лес и выход к воде" loading="lazy">
+    <span class="badge">Проверено</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">12 500 000 ₽ <span>20 833 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/valday-turbaza.html">Участок 6 га под турбазу, лес и выход к воде</a></h3>
+    <p class="meta">600 соток · 6 га · Новгородская область, Валдайский</p>
+    <ul class="tags"><li>Лес</li><li>Подъезд круглый год</li><li class="ok">Проверка 5 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="511">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>37</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="28,25,33,30,38,35,43" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="auction" data-tags="Аукцион У воды" data-price="1450000" data-views="734" data-days="1" data-rank="60">
+  <a class="ph" href="object/auction-konakovo.html">
+    <img src="img/gen/ozero-shirokoe.webp" width="560" height="385" alt="Аукцион: участок 2,8 га у воды в Конаковском районе" loading="lazy">
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6-3 3-6-6zM11 7 4 14l3 3 7-7M3 21h10"/></svg> Аукцион</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">1 450 000 ₽ <span>ставок 7, шаг 50 000 ₽</span></p>
+    <h3 class="ttl"><a href="object/auction-konakovo.html">Аукцион: участок 2,8 га у воды в Конаковском районе</a></h3>
+    <p class="meta">280 соток · 2,8 га · Тверская область, Конаковский</p>
+    <ul class="tags"><li>Аукцион</li><li>У воды</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="734">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>62</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="30,32,34,36,38,40,42" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес Дом" data-price="11200000" data-views="418" data-days="5" data-rank="58">
+  <a class="ph" href="object/valday-gostevoy.html">
+    <img src="img/gen/gostevoy-dom.webp" width="560" height="385" alt="Гостевой дом 240 м² с участком 30 соток" loading="lazy">
+    <span class="badge">Готовый бизнес</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">11 200 000 ₽ <span>1,8 млн ₽ выручки за год</span></p>
+    <h3 class="ttl"><a href="object/valday-gostevoy.html">Гостевой дом 240 м² с участком 30 соток</a></h3>
+    <p class="meta">30 соток · Новгородская область, Валдайский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>Дом</li><li class="ok">Проверка 5 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="418">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>39</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="22,22,22,33,33,33,33" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес Глэмпинг" data-price="7400000" data-views="642" data-days="2" data-rank="57">
+  <a class="ph" href="object/seliger-glamping.html">
+    <img src="img/gen/glamping.webp" width="560" height="385" alt="Глэмпинг на четыре купола, работает третий сезон" loading="lazy">
+    <span class="badge">Готовый бизнес</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">7 400 000 ₽ <span>2,4 млн ₽ выручки за прошлый сезон</span></p>
+    <h3 class="ttl"><a href="object/seliger-glamping.html">Глэмпинг на четыре купола, работает третий сезон</a></h3>
+    <p class="meta">150 соток · 1,5 га · Тверская область, Осташковский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>Глэмпинг</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="642">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>71</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="26,28,30,32,34,36,38" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес У воды" data-price="8900000" data-views="512" data-days="4" data-rank="53">
+  <a class="ph" href="object/belozersk-doma.html">
+    <img src="img/gen/domiki.webp" width="560" height="385" alt="Четыре гостевых дома у озера, действующий бизнес" loading="lazy">
+    <span class="badge">Готовый бизнес</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">8 900 000 ₽ <span>2,0 млн ₽ выручки за год</span></p>
+    <h3 class="ttl"><a href="object/belozersk-doma.html">Четыре гостевых дома у озера, действующий бизнес</a></h3>
+    <p class="meta">120 соток · 1,2 га · Вологодская область, Белозерский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>У воды</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="512">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>58</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="26,26,26,37,37,37,37" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Газ Электричество" data-price="1150000" data-views="204" data-days="10" data-rank="51">
+  <a class="ph" href="object/kimry-derevnya.html">
+    <img src="img/gen/derevnya.webp" width="560" height="385" alt="Участок 25 соток в деревне с газом по улице" loading="lazy">
+    <span class="badge">Проверено</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">1 150 000 ₽ <span>46 000 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/kimry-derevnya.html">Участок 25 соток в деревне с газом по улице</a></h3>
+    <p class="meta">25 соток · Тверская область, Кимрский</p>
+    <ul class="tags"><li>Газ</li><li>Электричество</li><li class="ok">Проверка 5 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="204">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>22</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="8,10,12,14,16,18,20" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес У воды" data-price="6300000" data-views="287" data-days="12" data-rank="45">
+  <a class="ph" href="object/kirillov-banya.html">
+    <img src="img/gen/banya.webp" width="560" height="385" alt="База с баней и причалом на берегу озера" loading="lazy">
+    <span class="badge">Готовый бизнес</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">6 300 000 ₽ <span>960 тыс ₽ выручки за сезон</span></p>
+    <h3 class="ttl"><a href="object/kirillov-banya.html">База с баней и причалом на берегу озера</a></h3>
+    <p class="meta">90 соток · Вологодская область, Кирилловский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>У воды</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="287">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>33</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="20,14,19,24,29,23,28" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="stroy" data-deal="sale" data-tags="Строится У воды" data-price="14500000" data-views="288" data-days="6" data-rank="45">
+  <a class="ph" href="object/stroy-doma.html">
+    <img src="img/gen/stroyka-domov.webp" width="560" height="385" alt="Строится: три дома под ключ на участке 1,5 га" loading="lazy">
+    <span class="badge">Строится</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">14 500 000 ₽ <span>Готовность 60 процентов, сдача в мае</span></p>
+    <h3 class="ttl"><a href="object/stroy-doma.html">Строится: три дома под ключ на участке 1,5 га</a></h3>
+    <p class="meta">150 соток · 1,5 га · Тверская область, Осташковский</p>
+    <ul class="tags"><li>Строится</li><li>У воды</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="288">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>34</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="16,23,19,26,22,29,25" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Электричество Подъезд круглый год" data-price="3400000" data-views="264" data-days="6" data-rank="44">
+  <a class="ph" href="object/kalyazin-podjezd.html">
+    <img src="img/p5.webp" width="560" height="385" alt="Участок 1,2 га с готовым подъездом и электричеством" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">3 400 000 ₽ <span>28 333 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/kalyazin-podjezd.html">Участок 1,2 га с готовым подъездом и электричеством</a></h3>
+    <p class="meta">120 соток · 1,2 га · Тверская область, Калязинский</p>
+    <ul class="tags"><li>Электричество</li><li>Подъезд круглый год</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="264">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>31</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="20,14,19,24,29,23,28" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="stroy" data-deal="sale" data-tags="Строится Электричество" data-price="990000" data-views="225" data-days="7" data-rank="43">
+  <a class="ph" href="object/stroy-elektro.html">
+    <img src="img/gen/setj-elektro.webp" width="560" height="385" alt="Строится: посёлок из 8 участков по 15 соток" loading="lazy">
+    <span class="badge">Строится</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">990 000 ₽ <span>Свободно 5 участков из 8</span></p>
+    <h3 class="ttl"><a href="object/stroy-elektro.html">Строится: посёлок из 8 участков по 15 соток</a></h3>
+    <p class="meta">15 соток · Ярославская область, Мышкинский</p>
+    <ul class="tags"><li>Строится</li><li>Электричество</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="225">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>27</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="13,20,16,23,19,26,22" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Лес Дорога" data-price="5600000" data-views="176" data-days="7" data-rank="41">
+  <a class="ph" href="object/torzhok-sosnyak.html">
+    <img src="img/gen/doroga-les.webp" width="560" height="385" alt="Участок 4 га в сосняке рядом с трассой" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">5 600 000 ₽ <span>14 000 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/torzhok-sosnyak.html">Участок 4 га в сосняке рядом с трассой</a></h3>
+    <p class="meta">400 соток · 4 га · Тверская область, Торжокский</p>
+    <ul class="tags"><li>Лес</li><li>Дорога</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="176">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>19</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="7,9,11,13,15,17,19" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="auction" data-tags="Аукцион У воды" data-price="810000" data-views="403" data-days="3" data-rank="40">
+  <a class="ph" href="object/auction-sebezh.html">
+    <img src="img/gen/osen-bereg.webp" width="560" height="385" alt="Аукцион: участок 70 соток на берегу озера" loading="lazy">
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6-3 3-6-6zM11 7 4 14l3 3 7-7M3 21h10"/></svg> Аукцион</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">810 000 ₽ <span>ставок 9, шаг 20 000 ₽</span></p>
+    <h3 class="ttl"><a href="object/auction-sebezh.html">Аукцион: участок 70 соток на берегу озера</a></h3>
+    <p class="meta">70 соток · Псковская область, Себежский</p>
+    <ul class="tags"><li>Аукцион</li><li>У воды</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="403">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>37</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="16,18,20,22,24,26,28" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="У воды Пляж" data-price="6100000" data-views="389" data-days="3" data-rank="39">
+  <a class="ph" href="object/priozersk-kemping.html">
+    <img src="img/gen/bereg-sosny.webp" width="560" height="385" alt="Участок 1 га на песчаном берегу под кемпинг" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">6 100 000 ₽ <span>61 000 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/priozersk-kemping.html">Участок 1 га на песчаном берегу под кемпинг</a></h3>
+    <p class="meta">100 соток · 1 га · Ленинградская область, Приозерский</p>
+    <ul class="tags"><li>У воды</li><li>Пляж</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="389">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>48</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="16,18,20,22,24,26,28" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Сад Электричество" data-price="740000" data-views="61" data-days="21" data-rank="38">
+  <a class="ph" href="object/pereslavl-sad.html">
+    <img src="img/gen/sad-teplitsy.webp" width="560" height="385" alt="Участок 6 соток с теплицами и садом" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">740 000 ₽ <span>123 333 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/pereslavl-sad.html">Участок 6 соток с теплицами и садом</a></h3>
+    <p class="meta">6 соток · Ярославская область, Переславский</p>
+    <ul class="tags"><li>Сад</li><li>Электричество</li><li class="ok">Проверка 4 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="61">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>5</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="4,6,8,10,12,14,16" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="business" data-deal="sale" data-tags="Готовый бизнес Кемпинг" data-price="5900000" data-views="355" data-days="8" data-rank="38">
+  <a class="ph" href="object/sortavala-kemping.html">
+    <img src="img/gen/kemping.webp" width="560" height="385" alt="Кемпинг на 12 площадок у соснового бора" loading="lazy">
+    <span class="badge">Готовый бизнес</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">5 900 000 ₽ <span>1,2 млн ₽ выручки за сезон</span></p>
+    <h3 class="ttl"><a href="object/sortavala-kemping.html">Кемпинг на 12 площадок у соснового бора</a></h3>
+    <p class="meta">200 соток · 2 га · Республика Карелия, Сортавальский</p>
+    <ul class="tags"><li>Готовый бизнес</li><li>Кемпинг</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="355">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>28</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="18,25,21,28,24,31,27" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="auction" data-tags="Аукцион Лес" data-price="1950000" data-views="312" data-days="5" data-rank="37">
+  <a class="ph" href="object/auction-krestsy.html">
+    <img src="img/gen/vorota-uchastok.webp" width="560" height="385" alt="Аукцион: 5 га под рекреацию у залива" loading="lazy">
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6-3 3-6-6zM11 7 4 14l3 3 7-7M3 21h10"/></svg> Аукцион</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">1 950 000 ₽ <span>ставок 4, шаг 50 000 ₽</span></p>
+    <h3 class="ttl"><a href="object/auction-krestsy.html">Аукцион: 5 га под рекреацию у залива</a></h3>
+    <p class="meta">500 соток · 5 га · Новгородская область, Крестецкий</p>
+    <ul class="tags"><li>Аукцион</li><li>Лес</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="312">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>21</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="17,24,20,27,23,30,26" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Вид на воду Лес" data-price="7200000" data-views="298" data-days="5" data-rank="36">
+  <a class="ph" href="object/prionezhye-holm.html">
+    <img src="img/gen/holm-vid.webp" width="560" height="385" alt="Участок 5 га на холме с видом на озеро" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">7 200 000 ₽ <span>14 400 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/prionezhye-holm.html">Участок 5 га на холме с видом на озеро</a></h3>
+    <p class="meta">500 соток · 5 га · Республика Карелия, Прионежский</p>
+    <ul class="tags"><li>Вид на воду</li><li>Лес</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="298">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>26</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="16,23,19,26,22,29,25" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="stroy" data-deal="sale" data-tags="Строится У воды" data-price="7600000" data-views="194" data-days="13" data-rank="33">
+  <a class="ph" href="object/stroy-prichal.html">
+    <img src="img/gen/prichal.webp" width="560" height="385" alt="Строится: причал и подъезд на участке 3 га" loading="lazy">
+    <span class="badge">Строится</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">7 600 000 ₽ <span>Причал готов, дом в проекте</span></p>
+    <h3 class="ttl"><a href="object/stroy-prichal.html">Строится: причал и подъезд на участке 3 га</a></h3>
+    <p class="meta">300 соток · 3 га · Республика Карелия, Кондопожский</p>
+    <ul class="tags"><li>Строится</li><li>У воды</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="194">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>18</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="10,20,19,18,17,27,26" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="stroy" data-deal="sale" data-tags="Строится Лес" data-price="4900000" data-views="167" data-days="9" data-rank="32">
+  <a class="ph" href="object/stroy-fundament.html">
+    <img src="img/gen/fundament.webp" width="560" height="385" alt="Строится: фундаменты под глэмпинг на 2 га" loading="lazy">
+    <span class="badge">Строится</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">4 900 000 ₽ <span>Готовность 25 процентов, свайное поле залито</span></p>
+    <h3 class="ttl"><a href="object/stroy-fundament.html">Строится: фундаменты под глэмпинг на 2 га</a></h3>
+    <p class="meta">200 соток · 2 га · Новгородская область, Валдайский</p>
+    <ul class="tags"><li>Строится</li><li>Лес</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="167">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>15</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="6,8,10,12,14,16,18" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Лес Электричество" data-price="890000" data-views="96" data-days="8" data-rank="30">
+  <a class="ph" href="object/selizharovo-bor.html">
+    <img src="img/gen/polyana-bor.webp" width="560" height="385" alt="Участок 12 соток в сосновом бору под дом" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">890 000 ₽ <span>74 166 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/selizharovo-bor.html">Участок 12 соток в сосновом бору под дом</a></h3>
+    <p class="meta">12 соток · Тверская область, Селижаровский</p>
+    <ul class="tags"><li>Лес</li><li>Электричество</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="96">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>8</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="7,10,13,16,19,22,25" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Лес Электричество" data-price="1750000" data-views="112" data-days="9" data-rank="30">
+  <a class="ph" href="object/okulovka-opushka.html">
+    <img src="img/gen/opushka.webp" width="560" height="385" alt="Участок 90 соток на опушке, свет по границе" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">1 750 000 ₽ <span>19 444 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/okulovka-opushka.html">Участок 90 соток на опушке, свет по границе</a></h3>
+    <p class="meta">90 соток · Новгородская область, Окуловский</p>
+    <ul class="tags"><li>Лес</li><li>Электричество</li><li class="ok">Проверка 3 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="112">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>9</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="7,10,13,16,19,22,25" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="auction" data-tags="Аукцион Сельхоз" data-price="900000" data-views="221" data-days="2" data-rank="25">
+  <a class="ph" href="object/auction-luga.html">
+    <img src="img/gen/sneg-uchastok.webp" width="560" height="385" alt="Аукцион: 15 га сельхозземли под пастбище" loading="lazy">
+    <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6-3 3-6-6zM11 7 4 14l3 3 7-7M3 21h10"/></svg> Аукцион</span>
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">900 000 ₽ <span>ставок 0, шаг 30 000 ₽</span></p>
+    <h3 class="ttl"><a href="object/auction-luga.html">Аукцион: 15 га сельхозземли под пастбище</a></h3>
+    <p class="meta">1500 соток · 15 га · Ленинградская область, Лужский</p>
+    <ul class="tags"><li>Аукцион</li><li>Сельхоз</li><li class="ok">Проверка 2 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="221">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>14</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="10,16,22,17,23,29,24" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Река Грант" data-price="6900000" data-views="128" data-days="3" data-rank="22">
+  <a class="ph" href="object/myshkin-baza.html">
+    <img src="img/p4.webp" width="560" height="385" alt="Массив 2,4 га под базу отдыха у реки" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">6 900 000 ₽ <span>28 750 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/myshkin-baza.html">Массив 2,4 га под базу отдыха у реки</a></h3>
+    <p class="meta">240 соток · 2,4 га · Ярославская область, Мышкинский</p>
+    <ul class="tags"><li>Река</li><li>Грант</li><li class="ok">Проверка 2 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="128">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>24</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="10,10,10,21,21,21,21" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Дорога Грант" data-price="5400000" data-views="143" data-days="11" data-rank="22">
+  <a class="ph" href="object/krestsy-agroturizm.html">
+    <img src="img/gen/pole-les.webp" width="560" height="385" alt="Поле 18 га под агротуризм, дорога вдоль границы" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">5 400 000 ₽ <span>3 000 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/krestsy-agroturizm.html">Поле 18 га под агротуризм, дорога вдоль границы</a></h3>
+    <p class="meta">1800 соток · 18 га · Новгородская область, Крестецкий</p>
+    <ul class="tags"><li>Дорога</li><li>Грант</li><li class="ok">Проверка 2 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="143">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>11</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="12,9,17,14,22,19,27" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Река Подъезд круглый год" data-price="2900000" data-views="87" data-days="14" data-rank="20">
+  <a class="ph" href="object/nekouz-reka.html">
+    <img src="img/gen/reka-lug.webp" width="560" height="385" alt="Участок 2 га у реки, луг и подъезд" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">2 900 000 ₽ <span>14 500 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/nekouz-reka.html">Участок 2 га у реки, луг и подъезд</a></h3>
+    <p class="meta">200 соток · 2 га · Ярославская область, Некоузский</p>
+    <ul class="tags"><li>Река</li><li>Подъезд круглый год</li><li class="ok">Проверка 2 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="87">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>6</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="12,13,14,15,16,17,18" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="Сельхоз" data-price="4800000" data-views="74" data-days="18" data-rank="20">
+  <a class="ph" href="object/galich-pole.html">
+    <img src="img/gen/ferma-pole.webp" width="560" height="385" alt="Поле 40 га под сельхоз, сенокос и выпас" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">4 800 000 ₽ <span>1 200 ₽ за сотку</span></p>
+    <h3 class="ttl"><a href="object/galich-pole.html">Поле 40 га под сельхоз, сенокос и выпас</a></h3>
+    <p class="meta">4000 соток · 40 га · Костромская область, Галичский</p>
+    <ul class="tags"><li>Сельхоз</li><li class="ok">Проверка 2 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="74">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>4</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="5,11,17,12,18,24,19" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article>
+<article class="card rv" data-type="uchastok" data-deal="sale" data-tags="У воды Лес" data-price="0" data-views="207" data-days="2" data-rank="15">
+  <a class="ph" href="object/kondopoga-ekootel.html">
+    <img src="img/p3.webp" width="560" height="385" alt="Участок 1,5 га с береговой линией под эко-отель" loading="lazy">
+    
+    <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+  </a>
+  <div class="body">
+    <p class="price">Цена по запросу <span>уточняется у продавца</span></p>
+    <h3 class="ttl"><a href="object/kondopoga-ekootel.html">Участок 1,5 га с береговой линией под эко-отель</a></h3>
+    <p class="meta">150 соток · 1,5 га · Республика Карелия, Кондопожский</p>
+    <ul class="tags"><li>У воды</li><li>Лес</li><li class="ok">Проверка 1 из 5</li></ul>
+    <div class="stats">
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="207">0</b></span>
+      <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>12</b></span>
+      <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="14,18,22,15,19,23,27" role="img" aria-label="Просмотры за 7 дней"></svg>
+    </div>
+  </div>
+</article></div>
+        <p id="empty" style="display:none;padding:32px 0;color:var(--soft)">По этим условиям ничего не нашлось. Сбросьте фильтры или выберите другую категорию.</p>
+      </div>
+  </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <p class="logo"><b>Биржа-Земли</b><span>Земля для туризма</span></p>
+        <p class="fdesc">Площадка поиска и продажи земли под базы отдыха, глэмпинги и туристические проекты по всей России.</p>
+      </div>
+      <nav aria-label="Каталог">
+        <h4>Каталог</h4>
+        <ul><li><a href="catalog.html">Участки</a></li><li><a href="catalog.html">Готовый бизнес</a></li><li><a href="catalog.html">Строящиеся</a></li><li><a href="catalog.html">Заявки покупателей</a></li></ul>
+      </nav>
+      <nav aria-label="Сервис">
+        <h4>Сервис</h4>
+        <ul><li><a href="catalog.html#auction">Ранжирование</a></li><li><a href="index.html#place">Разместить объявление</a></li><li><a href="index.html#cabinet">Кабинет продавца</a></li><li><a href="check.html">Проверка земли</a></li></ul>
+      </nav>
+      <nav aria-label="Документы">
+        <h4>Документы</h4>
+        <ul><li><a href="index.html#place">Правила размещения</a></li><li><a href="index.html#place">Оферта</a></li><li><a href="index.html#place">Обработка данных</a></li></ul>
+      </nav>
+    </div>
+    <div class="fbot">
+      <span>© Биржа-Земли, ИП Резниченко А. С.</span>
+      <span>Демонстрация интерфейса. Данные тестовые, объявления не реальные.<br>Фотографии: Викисклад, CC BY и CC BY-SA. Авторы: Aleksandr Ann, Ольга Слотвинская, Александр Спиридонов, Lyseria, Vityavo, Alex Evsikov, S Petr.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проверка земли перед сделкой, Биржа-Земли</title>
+<meta name="description" content="Проверка участка по документам и реестрам за 3 000 ₽, отчёт за один до трёх дней.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="index.html"><b>Биржа-Земли</b><span>Земля для туризма</span></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="catalog.html">Объекты</a>
+      <a href="catalog.html#auction">Аукционы</a>
+      <a href="catalog.html#business">Готовый бизнес</a>
+      <a href="check.html">Проверка земли</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="ico" id="theme" type="button" aria-label="Переключить тему">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="btn btn-p hdr-cta" href="index.html#place">Разместить участок</a>
+      <button class="ico burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnu" id="mnu">
+  <a href="catalog.html">Объекты</a>
+  <a href="catalog.html#auction">Аукционы</a>
+  <a href="catalog.html#business">Готовый бизнес</a>
+  <a href="check.html">Проверка земли</a>
+  <a class="btn btn-p" href="index.html#place">Разместить участок</a>
+</div>
+
+
+<main id="top">
+<section class="zone">
+  <div class="wrap form-zone">
+    <div class="rv">
+      <p class="kick">Проверка земли</p>
+      <h1 class="h2">Узнайте риски до сделки</h1>
+      <p class="sub">Проверяем участок по документам и открытым реестрам, отчёт сохраняется в кабинете. Пять пунктов: собственник, кадастр, категория и назначение, обременения, границы на местности.</p>
+      <div class="rank" style="grid-template-columns:1fr 1fr 1fr;margin-top:28px">
+        <div class="rule"><p class="n">1</p><h3>1 до 3 дней</h3><p>Срок подготовки отчёта после оплаты.</p></div>
+        <div class="rule"><p class="n">2</p><h3>Веб-отчёт</h3><p>Остаётся в кабинете, можно скачать и отправить.</p></div>
+        <div class="rule"><p class="n">3</p><h3>3 000 ₽</h3><p>Фиксированная стоимость одной проверки.</p></div>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Собственник и история</h3><p>Кто владеет участком, как и когда получил право, есть ли судебные споры.</p></div></li>
+        <li><span class="n">2</span><div><h3>Категория и назначение</h3><p>Можно ли строить то, ради чего покупаете, и что придётся менять.</p></div></li>
+        <li><span class="n">3</span><div><h3>Обременения и границы</h3><p>Залоги, аренда, охранные зоны, совпадение границ с фактическими на местности.</p></div></li>
+      </ol>
+    </div>
+
+    <form class="rv" data-validate novalidate>
+      <div class="fg" data-rule="text">
+        <label for="kad">Кадастровый номер</label>
+        <input class="field" id="kad" name="kad" inputmode="numeric" placeholder="69:27:3150644:8909" autocomplete="off">
+        <p class="hint">Если номера нет под рукой, напишите адрес участка.</p>
+        <p class="err">Заполните это поле</p>
+      </div>
+      <div class="fg" data-rule="text">
+        <label for="reg">Регион</label>
+        <input class="field" id="reg" name="reg" placeholder="Тверская область" autocomplete="off">
+        <p class="err">Укажите регион</p>
+      </div>
+      <div class="fg" data-rule="text">
+        <label for="goal">Цель покупки</label>
+        <input class="field" id="goal" name="goal" placeholder="Глэмпинг на 6 куполов" autocomplete="off">
+        <p class="hint">От цели зависит, какие ограничения важны.</p>
+        <p class="err">Опишите цель в двух словах</p>
+      </div>
+      <div class="fg" data-rule="phone">
+        <label for="tel">Телефон</label>
+        <input class="field" id="tel" name="tel" type="tel" inputmode="tel" placeholder="+7 900 000-00-00" autocomplete="tel">
+        <p class="err">Нужен телефон, чтобы сообщить результат</p>
+      </div>
+      <button class="btn btn-p btn-w" type="submit">Заказать проверку за 3 000 ₽</button>
+      <p class="note">Оплата после согласования, отчёт в течение трёх рабочих дней</p>
+      <p class="done" role="status"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Заявка принята. Проверим документы и пришлём отчёт в кабинет.</span></p>
+    </form>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <p class="logo"><b>Биржа-Земли</b><span>Земля для туризма</span></p>
+        <p class="fdesc">Площадка поиска и продажи земли под базы отдыха, глэмпинги и туристические проекты по всей России.</p>
+      </div>
+      <nav aria-label="Каталог">
+        <h4>Каталог</h4>
+        <ul><li><a href="catalog.html">Участки</a></li><li><a href="catalog.html">Готовый бизнес</a></li><li><a href="catalog.html">Строящиеся</a></li><li><a href="catalog.html">Заявки покупателей</a></li></ul>
+      </nav>
+      <nav aria-label="Сервис">
+        <h4>Сервис</h4>
+        <ul><li><a href="catalog.html#auction">Ранжирование</a></li><li><a href="index.html#place">Разместить объявление</a></li><li><a href="index.html#cabinet">Кабинет продавца</a></li><li><a href="check.html">Проверка земли</a></li></ul>
+      </nav>
+      <nav aria-label="Документы">
+        <h4>Документы</h4>
+        <ul><li><a href="index.html#place">Правила размещения</a></li><li><a href="index.html#place">Оферта</a></li><li><a href="index.html#place">Обработка данных</a></li></ul>
+      </nav>
+    </div>
+    <div class="fbot">
+      <span>© Биржа-Земли, ИП Резниченко А. С.</span>
+      <span>Демонстрация интерфейса. Данные тестовые, объявления не реальные.<br>Фотографии: Викисклад, CC BY и CC BY-SA. Авторы: Aleksandr Ann, Ольга Слотвинская, Александр Спиридонов, Lyseria, Vityavo, Alex Evsikov, S Petr.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 # Собирает демо в один файл: шрифты и картинки уходят внутрь html.
-# Запуск: python build.py
+# Запуск: python собрать.py
 
 import base64, io, re, pathlib
 
 BASE = pathlib.Path(__file__).parent
-OUT = BASE / 'demo-single-file.html'
+OUT = BASE.parent / 'материалы' / 'сайт-демо.html'
 MIME = {'.woff2': 'font/woff2', '.webp': 'image/webp'}
 
 cache = {}
@@ -16,6 +16,10 @@ def to_data_uri(rel):
     return cache[rel]
 
 html = io.open(BASE / 'index.html', encoding='utf-8').read()
+css = io.open(BASE / 'assets' / 'style.css', encoding='utf-8').read().replace('url(../font/', 'url(font/')
+js  = io.open(BASE / 'assets' / 'app.js', encoding='utf-8').read()
+html = html.replace('<link rel="stylesheet" href="assets/style.css">', '<style>' + css + '</style>')
+html = html.replace('<script src="assets/app.js" defer></script>', '<script>' + js + '</script>')
 html = re.sub(r'(?:img|font)/[\w.-]+\.(?:webp|woff2)', lambda m: to_data_uri(m.group(0)), html)
 
 io.open(OUT, 'w', encoding='utf-8', newline='\n').write(html)
