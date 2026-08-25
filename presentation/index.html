@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Биржа-Земли.РФ — предложение</title>
+<style>
+  :root {
+    --paper: #f7f6f3;
+    --white: #fff;
+    --ink: #16181d;
+    --soft: #4a5058;
+    --faint: #8b9199;
+    --line: #e3e1dc;
+    --brand: #1b4fd8;
+    --brand-soft: #eaf0ff;
+    --red: #c8372a;
+    --green: #2f7d4f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font: 16px/1.55 -apple-system, "Segoe UI", Inter, sans-serif;
+    overflow: hidden;
+  }
+  .deck { height: 100vh; position: relative; }
+  .slide {
+    position: absolute; inset: 0; display: none;
+    padding: 7vh 8vw; overflow-y: auto;
+    animation: in .25s ease;
+  }
+  .slide.active { display: flex; flex-direction: column; justify-content: center; }
+  @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--brand); background: var(--brand-soft);
+    padding: 6px 13px; border-radius: 999px; margin-bottom: 22px; align-self: flex-start;
+  }
+  h1 { font-size: clamp(38px, 6vw, 76px); line-height: 1.02; letter-spacing: -2.5px; font-weight: 800; }
+  h2 { font-size: clamp(28px, 4.2vw, 54px); line-height: 1.08; letter-spacing: -1.6px; font-weight: 800; max-width: 15ch; }
+  h2.wide { max-width: 22ch; }
+  .lead { font-size: clamp(17px, 1.7vw, 24px); color: var(--soft); margin-top: 20px; max-width: 62ch; }
+  .big-note { font-size: clamp(19px, 2vw, 28px); color: var(--ink); margin-top: 28px; max-width: 50ch; font-weight: 600; }
+
+  .chain { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+  .chain div {
+    flex: 1 1 200px; background: var(--white); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px 22px; position: relative;
+  }
+  .chain div b { display: block; font-size: clamp(16px,1.4vw,20px); margin-bottom: 6px; }
+  .chain div span { font-size: clamp(14px,1.15vw,17px); color: var(--faint); }
+
+  .list { margin-top: 34px; display: grid; gap: 12px; max-width: 900px; }
+  .list .row {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px;
+  }
+  .list .n {
+    flex: none; width: 30px; height: 30px; border-radius: 9px; background: var(--brand); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;
+  }
+  .list .n.grey { background: var(--faint); }
+  .list b { font-size: clamp(15px,1.3vw,19px); display: block; }
+  .list span { font-size: clamp(13px,1.1vw,16px); color: var(--faint); }
+
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+  @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
+  .case { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .case .num { font-size: clamp(34px,4vw,50px); font-weight: 800; letter-spacing: -2px; color: var(--brand); line-height: 1; }
+  .case .dom { font-size: 13px; color: var(--faint); margin: 8px 0 12px; letter-spacing: .3px; }
+  .case p { font-size: clamp(14px,1.15vw,16px); color: var(--soft); }
+
+  .price-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; }
+  @media (max-width: 900px) { .price-row { grid-template-columns: 1fr; } }
+  .p-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .p-card.hi { border: 2px solid var(--brand); }
+  .p-card .amount { font-size: clamp(26px,3vw,40px); font-weight: 800; letter-spacing: -1.2px; }
+  .p-card .when { font-size: 13px; color: var(--faint); margin-top: 4px; }
+  .p-card ul { list-style: none; margin-top: 16px; }
+  .p-card li { font-size: clamp(13px,1.1vw,16px); color: var(--soft); padding: 5px 0 5px 20px; position: relative; }
+  .p-card li::before { content: "→"; position: absolute; left: 0; color: var(--brand); }
+
+  .quote {
+    border-left: 4px solid var(--brand); padding: 14px 0 14px 22px; margin-top: 34px;
+    font-size: clamp(17px,1.6vw,23px); font-weight: 600; max-width: 60ch;
+  }
+  .quote.red { border-color: var(--red); }
+  .quote.green { border-color: var(--green); }
+
+  .nav {
+    position: fixed; bottom: 20px; right: 24px; display: flex; gap: 8px; align-items: center;
+    background: rgba(255,255,255,.92); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 8px; z-index: 10;
+  }
+  .nav button { width: 34px; height: 34px; border-radius: 50%; border: none; background: var(--paper); cursor: pointer; font-size: 15px; }
+  .nav button:hover { background: var(--brand); color: #fff; }
+  .counter { font-size: 13px; color: var(--faint); padding: 0 8px; min-width: 48px; text-align: center; }
+  .hint { position: fixed; bottom: 26px; left: 24px; font-size: 12px; color: var(--faint); z-index: 10; }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1 -->
+  <section class="slide active">
+    <span class="eyebrow">Предложение</span>
+    <h1>Биржа-Земли.РФ</h1>
+    <p class="lead">С чего начать, в каком порядке собирать и когда включать деньги.<br>
+    Для Александра и Стеллы, 24 августа 2026.</p>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide">
+    <span class="eyebrow">Что я посмотрел</span>
+    <h2 class="wide">Сайт снаружи и техзадание целиком</h2>
+    <p class="lead">Загрузил страницы в реальном браузере, замерил скорость, проверил мобильную
+    версию и служебные файлы. Техзадание разобрал по пунктам, оно подробное, вопросов почти
+    не осталось.</p>
+    <div class="quote">Понимаю, что проект ещё не запущен. Поэтому говорю не про потерянных
+    клиентов, а про то, как выйти на первых.</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide">
+    <span class="eyebrow">Что я вижу</span>
+    <h2>Функции есть. Площадки пока нет.</h2>
+    <p class="lead">В техзадании девять этапов, и все они по делу. Но объявлений на сайте ноль,
+    и из-за этого почти ничего из списка сейчас не заработает.</p>
+    <div class="quote red">Это не про сайт. Это про то, что на площадке пусто.</div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide">
+    <span class="eyebrow">Почему так</span>
+    <h2 class="wide">Круг, из которого не выйти функциями</h2>
+    <div class="chain">
+      <div><b>Нет объявлений</b><span>Покупателю нечего смотреть</span></div>
+      <div><b>Нет покупателей</b><span>Продавцу незачем размещаться</span></div>
+      <div><b>Нет продавцов</b><span>Некому платить за продвижение</span></div>
+      <div><b>Нет выручки</b><span>Аналитика и тарифы висят без дела</span></div>
+    </div>
+    <p class="big-note">Сколько функций ни сделай, круг не разомкнётся.
+    Размыкается он только объявлениями.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <span class="eyebrow">Что делать первым</span>
+    <h2 class="wide">Наполнить площадку, а не достраивать функции</h2>
+    <p class="lead">Ни один классифайд не ждал, пока продавцы придут сами. Все заводили
+    первые объявления своими руками.</p>
+    <div class="list">
+      <div class="row"><div class="n">1</div><div>
+        <b>Загрузка объявлений пачкой</b>
+        <span>Таблица или выгрузка, разметка колонок под ваши поля, проверка дублей.
+        Тысяча участков заезжает за один заход, а не руками по одному.</span></div></div>
+      <div class="row"><div class="n">2</div><div>
+        <b>Выгрузки от агентств</b>
+        <span>У агентств земля уже описана в своих таблицах. Даём формат, забираем выгрузку.
+        Им бесплатное размещение, вам первая тысяча объявлений.</span></div></div>
+      <div class="row"><div class="n">3</div><div>
+        <b>Счётчики с первого дня</b>
+        <span>Показывать продавцу будем позже, но данные копятся только со дня установки.
+        Поставим потом — первый месяц в кабинете будут пустые графики.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide">
+    <span class="eyebrow">Порядок</span>
+    <h2 class="wide">Ваше ТЗ, только в другом порядке</h2>
+    <div class="list">
+      <div class="row"><div class="n">1</div><div><b>Наполнение и счётчики</b><span>Чтобы на площадке появились участки</span></div></div>
+      <div class="row"><div class="n">2</div><div><b>Каталог и карточка участка</b><span>Чтобы покупатель их нашёл и открыл</span></div></div>
+      <div class="row"><div class="n">3</div><div><b>Кабинет продавца и аналитика</b><span>Чтобы продавец увидел результат</span></div></div>
+      <div class="row"><div class="n">4</div><div><b>Продвижение</b><span>Первые деньги. Работает только после шагов 1 до 3</span></div></div>
+      <div class="row"><div class="n grey">5</div><div><b>Тарифы и оплата</b><span>Когда есть кому продавать</span></div></div>
+      <div class="row"><div class="n grey">6</div><div><b>Проверка земли</b><span>Второй продукт, продаётся покупателю</span></div></div>
+    </div>
+    <div class="quote green">Ничего не выбрасываем. Меняем только очерёдность,
+    чтобы деньги пошли раньше.</div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <span class="eyebrow">По самому сайту</span>
+    <h2 class="wide">Что сделано хорошо и что стоит закрыть до запуска</h2>
+    <div class="cases" style="grid-template-columns:1fr 1fr">
+      <div class="case" style="border-left:4px solid var(--green)">
+        <div class="dom" style="margin-top:0">В порядке</div>
+        <p><b>Безопасность настроена грамотно.</b> Принудительный HTTPS, политика безопасности
+        контента, запрет встраивания в чужие страницы. Встречается редко.</p>
+        <p style="margin-top:12px"><b>Картинки и структура.</b> Современный формат, отложенная
+        загрузка, разделы разложены логично, внутренние страницы отвечают быстро.</p>
+        <p style="margin-top:12px">Для того, что собрано своими силами, это сильно.
+        Переписывать с нуля я ничего не собираюсь.</p>
+      </div>
+      <div class="case" style="border-left:4px solid var(--red)">
+        <div class="dom" style="margin-top:0">До запуска стоит закрыть</div>
+        <p><b>Страницы не кешируются.</b> Сервер отвечает секунду и собирает каждую страницу
+        заново при каждом заходе.</p>
+        <p style="margin-top:12px"><b>23 мелкие кнопки на телефоне.</b> Тяжело попадать пальцем,
+        часть текста мельче 13 пикселей. Телефон у вас будет основным трафиком.</p>
+        <p style="margin-top:12px"><b>Шрифты весят 145 КБ.</b> Больше, чем все картинки страницы
+        вместе взятые.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide">
+    <span class="eyebrow">Кто я</span>
+    <h2>Каталоги — это то, что я делаю</h2>
+    <p class="lead">Три работающих сайта, каждый сделан мной целиком: дизайн, вёрстка, бэкенд, запуск.</p>
+    <div class="cases">
+      <div class="case">
+        <div class="num">2000+</div>
+        <div class="dom">marinehouse.ru</div>
+        <p>Судовое оборудование. Девять категорий, загрузка позиций пачкой, B2B со счетами
+        и отсрочкой. Ровно та механика, которая нужна вам на первом этапе.</p>
+      </div>
+      <div class="case">
+        <div class="num">769</div>
+        <div class="dom">zhuravelnik-pitomnik.ru</div>
+        <p>Питомник растений. Каталог с поиском и фильтрами, корзина, админка.
+        Статьи и подборки заказчик ведёт сам, ко мне за этим не ходит.</p>
+      </div>
+      <div class="case">
+        <div class="num">11</div>
+        <div class="dom">feniks-pravo.ru</div>
+        <p>Адвокатское бюро. Здесь каталога нет, здесь решает доверие: кейсы, команда,
+        формы заявки. Пример сайта услуг.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <span class="eyebrow">Чем полезен</span>
+    <h2 class="wide">Прототип вы собрали сами. Дальше другая работа</h2>
+    <p class="lead">Собрать рабочий прототип с ИИ сегодня может каждый, и вы это уже сделали.
+    Сложное начинается потом: сделать так, чтобы на десяти тысячах объявлений ничего не рассыпалось.</p>
+    <div class="chain">
+      <div><b>Данные</b><span>Схема, индексы, миграции. Правка не ломает базу</span></div>
+      <div><b>Границы</b><span>Агент делает задачу, а не переписывает полпроекта</span></div>
+      <div><b>Приёмка</b><span>«Код готов» не принимается. Проверено руками</span></div>
+      <div><b>Эксплуатация</b><span>Бэкапы с проверкой, логи, откат любой правки</span></div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide">
+    <span class="eyebrow">Гарантии</span>
+    <h2 class="wide">Прозрачно и без привязки ко мне</h2>
+    <div class="list">
+      <div class="row"><div class="n">1</div><div>
+        <b>Код и доступы ваши с первого дня</b>
+        <span>Не по факту оплаты и не в конце проекта. Захотите работать с другим человеком,
+        вы ничего не теряете и никого не упрашиваете.</span></div></div>
+      <div class="row"><div class="n">2</div><div>
+        <b>Видно, что и когда менялось</b>
+        <span>Каждая правка в истории изменений, любую можно откатить. Документация лежит
+        в проекте, любой разработчик продолжит с того же места.</span></div></div>
+      <div class="row"><div class="n">3</div><div>
+        <b>Результат раз в неделю</b>
+        <span>Не отчёт о процессе, а то, что можно открыть и проверить самому.
+        Работа не уходит в чёрный ящик на месяц.</span></div></div>
+      <div class="row"><div class="n">4</div><div>
+        <b>Бэкапы с проверкой восстановления</b>
+        <span>Резервная копия, которую ни разу не разворачивали, это не резервная копия.
+        Проверяю раз в месяц.</span></div></div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide">
+    <span class="eyebrow">Деньги и дальше</span>
+    <h2 class="wide">Начнём с малого, остальное посчитаю после кода</h2>
+    <div class="price-row">
+      <div class="p-card hi">
+        <div class="amount">35 000 ₽</div>
+        <div class="when">пять рабочих дней</div>
+        <ul>
+          <li>Разбор кода и структуры данных</li>
+          <li>Что оставляем, что переделываем</li>
+          <li>Счётчики событий и Метрика</li>
+          <li>Отчёт с оценкой по каждому этапу</li>
+        </ul>
+      </div>
+      <div class="p-card">
+        <div class="amount">85 000 ₽</div>
+        <div class="when">три недели</div>
+        <ul>
+          <li>Всё из первого шага</li>
+          <li>Загрузка объявлений пачкой</li>
+          <li>Приём выгрузок и проверка дублей</li>
+          <li>Скорость и мобильная версия</li>
+        </ul>
+      </div>
+      <div class="p-card">
+        <div class="amount">Дальше</div>
+        <div class="when">по этапам</div>
+        <ul>
+          <li>Оценка по каждому этапу отдельно</li>
+          <li>Оплата по факту сдачи</li>
+          <li>Остановиться можно после любого</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide">
+    <span class="eyebrow">Дальше</span>
+    <h2 class="wide">Поддержка 30 000 ₽ в месяц</h2>
+    <p class="lead">Когда проект запустится, его надо кому-то вести. Это отдельная история,
+    не вместо работ, а после них.</p>
+    <div class="cases" style="grid-template-columns:1fr 1fr">
+      <div class="case" style="border-left:4px solid var(--green)">
+        <div class="dom" style="margin-top:0">Входит</div>
+        <p>До 10 часов работ в месяц</p>
+        <p style="margin-top:8px">Правки текстов, картинок, блоков</p>
+        <p style="margin-top:8px">Обновление зависимостей и безопасности</p>
+        <p style="margin-top:8px">Контроль доступности и резервных копий</p>
+        <p style="margin-top:8px">Восстановление после сбоев</p>
+        <p style="margin-top:8px">Ежемесячный отчёт: что сделано, сколько часов ушло,
+        посещаемость и заявки в цифрах</p>
+      </div>
+      <div class="case" style="border-left:4px solid var(--faint)">
+        <div class="dom" style="margin-top:0">Не входит</div>
+        <p>Новые разделы и функции</p>
+        <p style="margin-top:8px">Редизайн</p>
+        <p style="margin-top:8px">Интеграции со сторонними системами</p>
+        <p style="margin-top:8px">Наполнение контентом</p>
+        <p style="margin-top:8px">Реклама и продвижение</p>
+        <p style="margin-top:14px"><b>Оценивается отдельно, ставка 3 000 ₽ в час.</b></p>
+      </div>
+    </div>
+    <div class="quote">Ответ в течение рабочего дня, с 10 до 19. Если сайт лёг или не идут
+    заявки, подключаюсь в течение двух часов.</div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide">
+    <span class="eyebrow">Дальше</span>
+    <h2>Что нужно от вас</h2>
+    <div class="list">
+      <div class="row"><div class="n">1</div><div>
+        <b>Доступ к репозиторию и хостингу</b>
+        <span>Чтобы подтвердить оценку по коду, а не гадать по внешним признакам.</span></div></div>
+      <div class="row"><div class="n">2</div><div>
+        <b>Решение по первому шагу</b>
+        <span>Разбор кода и счётчики можно начинать хоть завтра.</span></div></div>
+      <div class="row"><div class="n">3</div><div>
+        <b>Один канал для задач</b>
+        <span>Чат или почта, чтобы обращения не терялись между людьми.</span></div></div>
+    </div>
+    <p class="big-note">В течение двух рабочих дней после доступа пришлю уточнённый отчёт:
+    подтвержу объём и сроки или скорректирую их.</p>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev" aria-label="Назад">‹</button>
+  <span class="counter" id="counter">1 / 11</span>
+  <button id="next" aria-label="Вперёд">›</button>
+</div>
+<div class="hint">Стрелки или пробел — листать, F — полный экран</div>
+
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const counter = document.getElementById("counter");
+  let i = 0;
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    counter.textContent = `${i + 1} / ${slides.length}`;
+    location.hash = i + 1;
+  }
+
+  document.getElementById("next").onclick = () => show(i + 1);
+  document.getElementById("prev").onclick = () => show(i - 1);
+
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === "Home") show(0);
+    if (e.key === "End") show(slides.length - 1);
+    // e.code, а не e.key: на русской раскладке физическая F даёт «а»
+    if (e.code === "KeyF") {
+      e.preventDefault();
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        const el = document.documentElement;
+        const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+        if (req) req.call(el);
+      }
+    }
+  });
+
+  window.addEventListener("hashchange", () => {
+    const n = Number(location.hash.replace("#", "")) - 1;
+    if (Number.isFinite(n) && n >= 0 && n !== i) show(n);
+  });
+
+  const start = Number(location.hash.replace("#", "")) - 1;
+  show(Number.isFinite(start) && start >= 0 ? start : 0);
+</script>
+</body>
+</html>

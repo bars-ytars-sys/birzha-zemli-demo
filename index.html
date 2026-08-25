@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Биржа-Земли: участки под базы отдыха и глэмпинги</title>
+<meta name="description" content="Площадка земли для туристического бизнеса. Участки у воды и леса с проверенными документами, счётчик просмотров и показов телефона на каждом объекте.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{
+  font-family:"Golos Text";font-style:normal;font-weight:400 900;font-display:swap;
+  src:url(font/gt-cyr.woff2) format("woff2");
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face{
+  font-family:"Golos Text";font-style:normal;font-weight:400 900;font-display:swap;
+  src:url(font/gt-lat.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD,U+20BD,U+2116;
+}
+
+:root{
+  color-scheme:light;
+  --bg:#F1F3EE; --surf:#FFFFFF; --surf2:#F7F8F4; --surf3:#EDF0E9;
+  --ink:#111614; --soft:#525B54; --faint:#6B746D;
+  --line:#E2E7DD; --line2:#D2DACB;
+  --brand:#10352A; --action:#146B4A; --action-h:#0F5539; --on:#FFFFFF;
+  --gold:#D9A93F; --gold-ink:#2A1E05;
+  --ok:#1E6B3C; --ok-bg:#E7F1E9; --alert:#B4402F;
+  --plate:rgba(9,15,11,.74);
+  --sh-s:0 1px 2px rgba(17,30,22,.06);
+  --sh:0 6px 20px rgba(17,30,22,.09);
+  --sh-l:0 14px 34px rgba(17,30,22,.14);
+  --r-s:10px; --r:14px; --r-l:20px;
+  --sans:"Golos Text","Segoe UI",system-ui,-apple-system,sans-serif;
+  --hd:72px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --bg:#0B0F0D; --surf:#121714; --surf2:#171E1A; --surf3:#1D2620;
+  --ink:#E7EBE6; --soft:#A0A9A2; --faint:#7E8880;
+  --line:#232B26; --line2:#303A33;
+  --brand:#CFE4D8; --action:#2EA76D; --action-h:#39B87B; --on:#04120A;
+  --gold:#D9A93F; --gold-ink:#2A1E05;
+  --ok:#5EC07E; --ok-bg:#13271A; --alert:#E4776A;
+  --sh-s:0 1px 2px rgba(0,0,0,.4);
+  --sh:0 6px 20px rgba(0,0,0,.5);
+  --sh-l:0 14px 34px rgba(0,0,0,.6);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0B0F0D; --surf:#121714; --surf2:#171E1A; --surf3:#1D2620;
+  --ink:#E7EBE6; --soft:#A0A9A2; --faint:#7E8880;
+  --line:#232B26; --line2:#303A33;
+  --brand:#CFE4D8; --action:#2EA76D; --action-h:#39B87B; --on:#04120A;
+  --gold:#D9A93F; --gold-ink:#2A1E05;
+  --ok:#5EC07E; --ok-bg:#13271A; --alert:#E4776A;
+  --sh-s:0 1px 2px rgba(0,0,0,.4);
+  --sh:0 6px 20px rgba(0,0,0,.5);
+  --sh-l:0 14px 34px rgba(0,0,0,.6);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+option{background:var(--surf);color:var(--ink)}
+h1,h2,h3,h4,p,ul,figure{margin:0}
+ul{list-style:none;padding:0}
+:focus-visible{outline:2px solid var(--action);outline-offset:2px;border-radius:6px}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 20px}
+@media (min-width:900px){.wrap{padding:0 32px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ——— типографика ——— */
+.h2{font-size:26px;line-height:1.15;font-weight:800;letter-spacing:-.02em}
+@media (min-width:760px){.h2{font-size:34px}}
+.kick{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--action);margin-bottom:10px}
+.sub{color:var(--soft);font-size:17px;margin-top:12px;max-width:62ch}
+.head{margin-bottom:32px}
+
+/* ——— кнопки ——— */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 22px;border:1px solid transparent;border-radius:999px;font-size:15px;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.btn-p{background:var(--action);color:var(--on)}
+.btn-p:hover{background:var(--action-h)}
+.btn-s{background:var(--surf);color:var(--ink);border-color:var(--line2)}
+.btn-s:hover{border-color:var(--action);color:var(--action)}
+.btn-w{width:100%}
+
+/* ——— шапка ——— */
+.hdr{position:fixed;inset:0 0 auto;z-index:60;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,box-shadow .3s}
+.hdr-in{display:flex;align-items:center;gap:16px;height:var(--hd)}
+.logo{display:flex;flex-direction:column;line-height:1.05;color:#fff;transition:color .3s}
+.logo b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.logo span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.72;margin-top:3px}
+.nav{display:none;gap:4px;margin:0 auto}
+@media (min-width:1000px){.nav{display:flex}}
+.nav a{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-size:15px;font-weight:500;color:rgba(255,255,255,.88);transition:color .18s,background .18s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.hdr-r{display:flex;align-items:center;gap:8px;margin-left:auto}
+@media (min-width:1000px){.hdr-r{margin-left:0}}
+.ico{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.ico:hover{background:rgba(255,255,255,.2)}
+.hdr .btn-p{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.45);backdrop-filter:blur(10px)}
+.hdr .btn-p:hover{background:rgba(255,255,255,.26);border-color:rgba(255,255,255,.7)}
+.hdr-cta{display:none}
+@media (min-width:620px){.hdr-cta{display:inline-flex}}
+.burger{display:grid}
+@media (min-width:1000px){.burger{display:none}}
+.hdr.solid{background:var(--surf);border-bottom-color:var(--line);box-shadow:var(--sh-s)}
+.hdr.solid .logo{color:var(--ink)}
+.hdr.solid .logo span{color:var(--faint);opacity:1}
+.hdr.solid .nav a{color:var(--soft)}
+.hdr.solid .nav a:hover{color:var(--ink);background:var(--surf2)}
+.hdr.solid .ico{border-color:var(--line2);background:var(--surf);color:var(--soft)}
+.hdr.solid .ico:hover{color:var(--ink);background:var(--surf2)}
+.hdr.solid .btn-p{background:var(--action);color:var(--on);border-color:var(--action)}
+.hdr.solid .btn-p:hover{background:var(--action-h)}
+
+/* мобильное меню */
+.mnu{position:fixed;inset:var(--hd) 0 auto;z-index:55;background:var(--surf);border-bottom:1px solid var(--line);box-shadow:var(--sh);padding:8px 0 16px;display:none}
+.mnu.open{display:block}
+@media (min-width:1000px){.mnu{display:none!important}}
+.mnu a{display:flex;align-items:center;min-height:48px;padding:0 20px;font-size:16px;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line)}
+.mnu .btn{margin:16px 20px 0;width:calc(100% - 40px)}
+
+/* ——— герой ——— */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:100vh;min-height:100svh;overflow:hidden}
+@media (max-width:760px){.hero{min-height:0;padding-top:calc(var(--hd) + 28px)}}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(74deg,rgba(6,12,8,.88) 0%,rgba(6,12,8,.58) 30%,rgba(6,12,8,.14) 56%,transparent 76%),
+  linear-gradient(180deg,rgba(6,12,8,.44) 0%,transparent 20%,transparent 54%,rgba(6,12,8,.72) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding:24px 0 40px}
+@media (min-width:760px){.hero-in{padding:0 0 56px}}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#EBD3A0}
+.hero h1{color:#fff;font-size:clamp(31px,6.2vw,58px);line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-top:16px;max-width:16ch;text-wrap:balance}
+.hero .lead{color:rgba(255,255,255,.92);font-size:17px;line-height:1.5;max-width:52ch;margin-top:18px}
+@media (min-width:760px){.hero .lead{font-size:18px}}
+
+/* поиск */
+.srch{margin-top:28px;max-width:760px;background:var(--surf);border-radius:var(--r-l);padding:8px;box-shadow:0 18px 44px rgba(0,0,0,.32);display:grid;gap:4px}
+@media (min-width:760px){.srch{border-radius:999px;grid-template-columns:.92fr 1.55fr .82fr auto;align-items:center;gap:0;padding:6px}}
+.seg{display:flex;flex-direction:column;justify-content:center;gap:3px;min-height:52px;padding:8px 16px;border-radius:var(--r);cursor:pointer;transition:background .16s;min-width:0}
+@media (min-width:760px){.seg{border-radius:999px;padding:9px 24px;position:relative}
+  .seg + .seg::before{content:"";position:absolute;left:0;top:50%;width:1px;height:30px;transform:translateY(-50%);background:var(--line2)}
+  .seg:hover::before,.seg:hover + .seg::before{opacity:0}}
+.seg:hover,.seg:focus-within{background:var(--surf2)}
+.seg input:focus-visible,.seg select:focus-visible{outline:none}
+.seg .l{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.seg .v{font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg input{width:100%;border:0;padding:0;background:transparent;font-size:15px}
+.seg input::placeholder{color:var(--faint)}
+.seg select{width:100%;border:0;padding:0 20px 0 0;background:transparent;font-size:15px;-webkit-appearance:none;appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%236B746D' stroke-width='2.6'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right center}
+.srch .btn{min-height:52px;font-size:16px}
+@media (min-width:760px){.srch .btn{width:56px;min-width:56px;height:56px;min-height:56px;margin-left:8px;padding:0;border-radius:999px}
+  .srch .btn span{display:none}}
+
+/* метрики героя */
+.pulse{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 32px;max-width:760px}
+.pulse .m{padding:12px 0}
+.pulse .m b{display:block;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums}
+.pulse .m span{display:block;margin-top:6px;font-size:14px;color:rgba(255,255,255,.78)}
+.pulse-h{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:24px}
+.dot{width:8px;height:8px;border-radius:50%;background:#63C98B;box-shadow:0 0 0 0 rgba(99,201,139,.55);animation:pulse 2.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* ——— полоса доверия ——— */
+.trust{background:var(--surf);border-bottom:1px solid var(--line)}
+.trust ul{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 36px;padding:16px 0}
+.trust li{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--soft)}
+.trust b{color:var(--ink);font-weight:600}
+.trust svg{color:var(--action);flex-shrink:0}
+
+/* ——— секции ——— */
+.zone{padding:64px 0}
+@media (min-width:900px){.zone{padding:88px 0}}
+.zone.alt{background:var(--surf2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tag-new{display:inline-block;vertical-align:middle;margin-left:10px;background:var(--gold);color:var(--gold-ink);font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.01em}
+
+/* ——— каталог ——— */
+.tabs{display:flex;gap:4px;overflow-x:auto;margin:0 -20px;padding:0 20px 4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+@media (min-width:900px){.tabs{margin:0;padding:0 0 4px}}
+.tab{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--soft);font-size:15px;font-weight:600;white-space:nowrap;cursor:pointer;transition:background .16s,color .16s}
+.tab:hover{color:var(--ink);background:var(--surf2)}
+.tab[aria-selected="true"]{background:var(--brand);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:999px;background:var(--surf);color:var(--soft);font-size:14px;cursor:pointer;transition:border-color .16s,color .16s,background .16s}
+.chip:hover{border-color:var(--action);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--action);border-color:var(--action);color:var(--on)}
+
+.layout{display:grid;gap:24px;margin-top:24px}
+@media (min-width:1000px){.layout{grid-template-columns:270px 1fr;gap:28px}}
+.filters{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:20px}
+@media (min-width:1000px){.filters{position:sticky;top:96px;align-self:start}}
+@media (max-width:999px){
+  .filters{position:fixed;inset:auto 0 0;z-index:70;border-radius:var(--r-l) var(--r-l) 0 0;max-height:88vh;overflow:auto;transform:translateY(101%);transition:transform .22s ease;box-shadow:var(--sh-l);padding-bottom:28px}
+  .filters.open{transform:none}
+}
+.filters h3{font-size:17px;font-weight:700}
+.f-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.f-close{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:transparent;color:var(--soft);border-radius:999px;cursor:pointer}
+@media (min-width:1000px){.f-close{display:none}}
+.fg{margin-bottom:16px}
+.fg > label{display:block;font-size:13px;color:var(--soft);margin-bottom:6px}
+.field{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line2);border-radius:var(--r-s);background:var(--surf2);font-size:15px}
+select.field{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B746D' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chk{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;cursor:pointer}
+.chk input{position:relative;width:20px;height:20px;flex-shrink:0;margin:0;-webkit-appearance:none;appearance:none;border:1.5px solid var(--line2);border-radius:6px;background:var(--surf);cursor:pointer;transition:background .15s,border-color .15s}
+.chk:hover input{border-color:var(--action)}
+.chk input:checked{background:var(--action);border-color:var(--action)}
+.chk input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid var(--on);border-width:0 2px 2px 0;transform:rotate(43deg)}
+.f-act{display:grid;gap:4px;margin-top:8px}
+.link-btn{min-height:44px;border:0;background:transparent;color:var(--soft);font-size:14px;cursor:pointer;border-radius:999px}
+.link-btn:hover{color:var(--ink);background:var(--surf2)}
+.veil{position:fixed;inset:0;z-index:65;background:rgba(6,12,8,.5);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.veil.open{opacity:1;visibility:visible}
+@media (min-width:1000px){.veil{display:none}}
+
+.rhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.rhead h2{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.rhead .cnt{margin-left:8px;font-size:14px;font-weight:500;color:var(--faint)}
+.rtools{display:flex;align-items:center;gap:8px;margin-left:auto}
+.sel{min-height:44px;padding:0 34px 0 14px;border:1px solid var(--line2);border-radius:999px;background:var(--surf);font-size:14px;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B746D' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.f-open{display:inline-flex}
+@media (min-width:1000px){.f-open{display:none}}
+
+.grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{display:flex;flex-direction:column;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden;transition:border-color .2s,box-shadow .2s,transform .2s}
+.card:hover{border-color:var(--line2);box-shadow:var(--sh);transform:translateY(-2px)}
+.ph{position:relative;display:block;aspect-ratio:16/11;background:var(--surf3)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;font-size:12px;font-weight:700;background:var(--plate);color:#fff;backdrop-filter:blur(4px)}
+.badge.gold{background:var(--gold);color:var(--gold-ink)}
+.fav{position:absolute;right:10px;top:10px;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:#2C3730;cursor:pointer;transition:color .16s,background .16s}
+.fav:hover{background:#fff;color:var(--alert)}
+.fav[aria-pressed="true"]{color:var(--alert)}
+.fav[aria-pressed="true"] svg{fill:currentColor}
+.card .body{display:flex;flex-direction:column;flex:1;padding:16px 16px 0}
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:21px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price span{font-size:14px;font-weight:500;color:var(--faint);letter-spacing:0}
+.ttl{margin-top:10px;font-size:16px;font-weight:600;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ttl a:hover{color:var(--action)}
+.meta{margin-top:8px;font-size:14px;color:var(--soft)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 auto}
+.tags li{font-size:13px;padding:4px 10px;border-radius:var(--r-s);background:var(--surf2);border:1px solid var(--line);color:var(--soft)}
+.tags li.ok{background:var(--ok-bg);border-color:transparent;color:var(--ok);font-weight:600}
+.stats{display:flex;align-items:center;gap:14px;margin:14px -16px 0;padding:11px 16px;border-top:1px solid var(--line);background:var(--surf2);font-size:14px;color:var(--soft)}
+.stats .s{display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.stats .s b{color:var(--ink);font-weight:700}
+.stats svg{color:var(--faint);flex-shrink:0}
+.spark{margin-left:auto;color:var(--action);flex-shrink:0}
+.more-row{margin-top:32px;text-align:center}
+
+/* ——— ранжирование ——— */
+.rank{display:grid;gap:16px}
+@media (min-width:820px){.rank{grid-template-columns:repeat(3,1fr)}}
+.rule{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:22px}
+.rule .n{display:grid;place-items:center;width:36px;height:36px;border-radius:999px;background:var(--surf3);color:var(--action);font-size:15px;font-weight:800}
+.rule h3{margin-top:14px;font-size:18px;font-weight:700}
+.rule p{margin-top:8px;font-size:15px;color:var(--soft)}
+.wgt{margin-top:16px}
+.track{height:6px;border-radius:999px;background:var(--surf3);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:999px;background:var(--action);transition:width .7s cubic-bezier(.22,.61,.36,1)}
+.track.grow i{width:var(--w)}
+.wgt .lbl{display:flex;justify-content:space-between;margin-top:8px;font-size:13px;color:var(--faint)}
+.wgt .lbl b{color:var(--ink);font-variant-numeric:tabular-nums}
+.calc{margin-top:24px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.calc-h{padding:18px 22px;border-bottom:1px solid var(--line);font-size:15px;color:var(--soft)}
+.calc-h b{color:var(--ink)}
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+th,td{padding:14px 22px;text-align:left;border-bottom:1px solid var(--line)}
+th{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td.num{font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+.pos{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:var(--surf3);font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.pos.top{background:var(--action);color:var(--on)}
+.tsub{display:block;margin-top:3px;font-size:13px;color:var(--faint)}
+.up{color:var(--ok);font-weight:600}
+
+/* ——— карточка объявления ——— */
+.detail{display:grid;gap:20px}
+@media (min-width:960px){.detail{grid-template-columns:1.6fr 1fr;gap:28px;align-items:start}}
+.gal{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.gal .main{position:relative;aspect-ratio:16/10}
+.gal .main img{width:100%;height:100%;object-fit:cover}
+.gal .main .badge{left:auto;right:12px;top:auto;bottom:12px;font-size:13px;font-weight:600;gap:7px}
+.gal .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}
+.gal .strip button{padding:0;border:0;background:transparent;border-radius:var(--r-s);overflow:hidden;cursor:pointer;line-height:0}
+.gal .strip img{aspect-ratio:4/3;object-fit:cover;transition:opacity .16s}
+.gal .strip button:hover img{opacity:.82}
+.dbox{margin-top:20px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px}
+.dbox h3{font-size:20px;font-weight:700;line-height:1.28}
+.dbox .loc{margin-top:8px;font-size:14px;color:var(--soft)}
+.specs{display:grid;gap:0 32px;margin-top:18px}
+@media (min-width:560px){.specs{grid-template-columns:1fr 1fr}}
+.specs div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.specs div:last-child{border-bottom:0}
+@media (min-width:560px){.specs div:nth-last-child(-n+2){border-bottom:0}}
+.specs dt{color:var(--soft)}
+.specs dd{margin:0;font-weight:600;text-align:right}
+.aside{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;box-shadow:var(--sh)}
+@media (min-width:960px){.aside{position:sticky;top:96px}}
+.aside .pr{font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.aside .pp{margin-top:4px;font-size:14px;color:var(--soft)}
+.aside .btn{margin-top:18px}
+.aside .btn-s{margin-top:8px}
+.phone{display:none;margin-top:10px;padding:13px;border:1px dashed var(--line2);border-radius:var(--r);background:var(--surf2);text-align:center;font-size:19px;font-weight:800;letter-spacing:.02em}
+.phone.show{display:block}
+.cnts{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:12px;font-size:15px;color:var(--soft)}
+.cnts div{display:flex;align-items:center;gap:10px}
+.cnts b{color:var(--ink);font-variant-numeric:tabular-nums}
+.cnts svg{color:var(--faint);flex-shrink:0}
+.seller{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.av{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;background:var(--surf3);color:var(--action);font-size:17px;font-weight:800;flex-shrink:0}
+.seller .sn{font-size:15px;font-weight:600}
+.seller .sr{font-size:13px;color:var(--faint)}
+
+/* ——— кабинет ——— */
+.cab{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.report{display:grid;gap:28px;padding:24px}
+@media (min-width:820px){.report{grid-template-columns:1fr 260px;align-items:end}}
+.chart-cap{font-size:14px;color:var(--soft)}
+.chart{display:flex;align-items:flex-end;gap:10px;height:170px;margin-top:24px;border-bottom:1px solid var(--line2)}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;height:100%}
+.bar i{display:block;width:100%;max-width:52px;height:0;border-radius:8px 8px 0 0;background:var(--surf3);position:relative;transition:height 1s cubic-bezier(.22,.61,.36,1);transition-delay:calc(var(--i)*70ms)}
+.bar.grow i{height:var(--h)}
+.bar.cur i{background:var(--action)}
+.bar i em{position:absolute;left:50%;top:-22px;transform:translateX(-50%);font-style:normal;font-size:13px;font-weight:600;color:var(--soft);font-variant-numeric:tabular-nums}
+.bar span{font-size:13px;color:var(--faint)}
+.kpi{background:var(--surf2);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.kpi .k{font-size:32px;font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--action)}
+.kpi .kl{margin-top:6px;font-size:14px;color:var(--soft)}
+.kpi .k2{margin-top:18px;font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+
+/* ——— форма ——— */
+.form-zone{display:grid;gap:28px}
+@media (min-width:900px){.form-zone{grid-template-columns:1fr 1fr;gap:56px;align-items:start}}
+.steps{display:grid;gap:18px;margin-top:28px}
+.steps li{display:flex;gap:14px}
+.steps .n{display:grid;place-items:center;width:30px;height:30px;flex-shrink:0;border-radius:999px;background:var(--surf3);color:var(--action);font-size:14px;font-weight:800}
+.steps h3{font-size:16px;font-weight:700}
+.steps p{margin-top:4px;font-size:15px;color:var(--soft)}
+form{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px}
+form .fg{margin-bottom:18px}
+form label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+form .hint{margin-top:6px;font-size:13px;color:var(--faint)}
+.err{display:none;margin-top:6px;font-size:13px;color:var(--alert);font-weight:600}
+.fg.bad .field{border-color:var(--alert)}
+.fg.bad .err{display:block}
+.done{display:none;align-items:flex-start;gap:12px;padding:16px;border-radius:var(--r);background:var(--ok-bg);color:var(--ok);font-size:15px;font-weight:600}
+.done.show{display:flex}
+.done svg{flex-shrink:0;margin-top:1px}
+form .note{margin-top:14px;font-size:13px;color:var(--faint);text-align:center}
+
+/* ——— подвал ——— */
+footer{background:var(--surf2);border-top:1px solid var(--line);padding:56px 0 32px}
+.fcols{display:grid;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+@media (min-width:640px){.fcols{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1000px){.fcols{grid-template-columns:1.7fr 1fr 1fr 1fr}}
+footer .logo{color:var(--ink)}
+footer .logo span{color:var(--faint);opacity:1}
+.fdesc{margin-top:14px;font-size:14px;color:var(--soft);max-width:36ch}
+.fcols h4{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.fcols li a{display:flex;align-items:center;min-height:38px;font-size:15px;color:var(--soft)}
+.fcols li a:hover{color:var(--action)}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;font-size:13px;color:var(--faint);line-height:1.6}
+
+/* ——— появление ——— */
+.rv{opacity:0;transform:translateY(12px);transition:opacity .32s ease,transform .32s ease}
+.rv.in{opacity:1;transform:none}
+.grid .rv:nth-child(2){transition-delay:.05s}
+.grid .rv:nth-child(3){transition-delay:.1s}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#top"><b>Биржа-Земли</b><span>Земля для туризма</span></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#catalog">Каталог</a>
+      <a href="#rank">Ранжирование</a>
+      <a href="#detail">Объявление</a>
+      <a href="#cabinet">Кабинет продавца</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="ico" id="theme" type="button" aria-label="Переключить тему">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="btn btn-p hdr-cta" href="#place">Разместить участок</a>
+      <button class="ico burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnu" id="mnu">
+  <a href="#catalog">Каталог</a>
+  <a href="#rank">Ранжирование</a>
+  <a href="#detail">Объявление</a>
+  <a href="#cabinet">Кабинет продавца</a>
+  <a class="btn btn-p" href="#place">Разместить участок</a>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="img/hero.webp" width="1920" height="1072" alt="Берег лесного озера на закате, грунтовая дорога вдоль соснового бора" fetchpriority="high">
+  </div>
+  <div class="hero-in">
+    <div class="wrap">
+      <p class="eyebrow">Земля под базы отдыха, глэмпинги и эко-отели</p>
+      <h1>Участки под туризм по всей России</h1>
+      <p class="lead">Земля у воды и леса с проверенными документами. По каждому объекту видно, сколько раз его открыли и сколько раз запросили телефон продавца.</p>
+
+      <form class="srch" role="search" id="srch">
+        <label class="seg">
+          <span class="l">Регион</span>
+          <select aria-label="Регион">
+            <option>Вся Россия</option><option>Тверская область</option><option>Республика Карелия</option><option>Новгородская область</option><option>Ярославская область</option>
+          </select>
+        </label>
+        <label class="seg">
+          <span class="l">Что ищем</span>
+          <input type="search" placeholder="Глэмпинг, база отдыха, берег" aria-label="Что ищем">
+        </label>
+        <label class="seg">
+          <span class="l">Площадь</span>
+          <select aria-label="Площадь">
+            <option>Любая</option><option>от 0,5 га</option><option>от 1 га</option><option>от 3 га</option>
+          </select>
+        </label>
+        <button class="btn btn-p" type="submit" aria-label="Найти">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <span>Найти участок</span>
+        </button>
+      </form>
+
+      <p class="pulse-h"><span class="dot"></span> Площадка за последние 30 дней</p>
+      <div class="pulse">
+        <div class="m"><b data-count="12480">0</b><span>просмотров объявлений</span></div>
+        <div class="m"><b data-count="3120">0</b><span>показов телефона продавцам</span></div>
+        <div class="m"><b data-count="18">0</b><span>активных заявок покупателей</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <ul>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span><b>Проверка</b> кадастра и документов</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><span><b>Прямой контакт</b> продавца, без комиссии</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span><b>Счётчик просмотров</b> на каждом объекте</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="zone" id="catalog" aria-labelledby="catalog-h">
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="Категории">
+      <button class="tab" role="tab" aria-selected="true">Все объекты</button>
+      <button class="tab" role="tab" aria-selected="false">Участки</button>
+      <button class="tab" role="tab" aria-selected="false">Готовый бизнес</button>
+      <button class="tab" role="tab" aria-selected="false">Строящиеся</button>
+      <button class="tab" role="tab" aria-selected="false">Заявки покупателей</button>
+    </div>
+    <div class="chips">
+      <button class="chip" type="button" aria-pressed="true">У воды</button>
+      <button class="chip" type="button" aria-pressed="false">Электричество</button>
+      <button class="chip" type="button" aria-pressed="false">Круглогодичный подъезд</button>
+      <button class="chip" type="button" aria-pressed="false">Грантовый потенциал</button>
+      <button class="chip" type="button" aria-pressed="false">До 5 млн</button>
+      <button class="chip" type="button" aria-pressed="false">От 1 га</button>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <div class="layout">
+      <aside class="filters" id="filters" aria-label="Фильтры">
+        <div class="f-top">
+          <h3>Фильтры</h3>
+          <button class="f-close" id="f-close" type="button" aria-label="Закрыть фильтры">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <div class="fg"><label for="f-reg">Регион</label>
+          <select class="field" id="f-reg"><option>Вся Россия</option><option>Тверская область</option><option>Республика Карелия</option><option>Новгородская область</option><option>Ярославская область</option></select>
+        </div>
+        <div class="fg"><label for="f-use">Назначение</label>
+          <select class="field" id="f-use"><option>Любое</option><option>Рекреация</option><option>Туристическое обслуживание</option><option>ИЖС</option><option>Сельхоз, СХ-3</option></select>
+        </div>
+        <div class="fg"><label>Цена, ₽</label>
+          <div class="two"><input class="field" inputmode="numeric" placeholder="от" aria-label="Цена от"><input class="field" inputmode="numeric" placeholder="до" aria-label="Цена до"></div>
+        </div>
+        <div class="fg"><label>Площадь, соток</label>
+          <div class="two"><input class="field" inputmode="numeric" placeholder="от" aria-label="Площадь от"><input class="field" inputmode="numeric" placeholder="до" aria-label="Площадь до"></div>
+        </div>
+        <div class="fg">
+          <label class="chk"><input type="checkbox" checked> У воды</label>
+          <label class="chk"><input type="checkbox"> Электричество</label>
+          <label class="chk"><input type="checkbox"> Круглогодичный подъезд</label>
+          <label class="chk"><input type="checkbox"> Грантовый потенциал</label>
+        </div>
+        <div class="f-act">
+          <button class="btn btn-p btn-w" type="button">Показать 60 объектов</button>
+          <button class="link-btn" type="button">Сбросить фильтры</button>
+        </div>
+      </aside>
+
+      <div>
+        <div class="rhead">
+          <h2 id="catalog-h">Каталог участков<span class="cnt">найдено 60</span></h2>
+          <div class="rtools">
+            <button class="btn btn-s f-open" id="f-open" type="button">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+              Фильтры
+            </button>
+            <select class="sel" aria-label="Сортировка">
+              <option>Сначала рекомендуемые</option><option>Сначала новые</option><option>Дешевле</option><option>Дороже</option><option>Больше просмотров</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid">
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p1.webp" width="560" height="385" alt="Озеро на закате, пологий берег с травой" loading="lazy">
+              <span class="badge gold">Приоритет</span>
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">4 200 000 ₽ <span>52 500 ₽ за сотку</span></p>
+              <h3 class="ttl"><a href="#detail">Участок 0,8 га на первой линии у озера под глэмпинг</a></h3>
+              <p class="meta">80 соток · Тверская область, Осташковский</p>
+              <ul class="tags"><li>У воды</li><li>Электричество</li><li class="ok">Проверка 3 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="342">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>3</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="9,14,11,19,16,27,34" role="img" aria-label="Просмотры за 7 дней растут"></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p2.webp" width="560" height="385" alt="Лесное озеро с отражением деревьев" loading="lazy">
+              <span class="badge">Проверено</span>
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">12 500 000 ₽ <span>20 833 ₽ за сотку</span></p>
+              <h3 class="ttl"><a href="#detail">Участок 6 га под турбазу, лес и выход к воде</a></h3>
+              <p class="meta">600 соток · Новгородская область, Валдайский</p>
+              <ul class="tags"><li>Лес</li><li>Подъезд круглый год</li><li class="ok">Проверка 5 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="511">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>7</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="21,19,26,24,31,29,38" role="img" aria-label="Просмотры за 7 дней растут"></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p3.webp" width="560" height="385" alt="Сосны на берегу озера с прозрачной водой" loading="lazy">
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">Цена по запросу <span>собственный берег</span></p>
+              <h3 class="ttl"><a href="#detail">Участок 1,5 га с береговой линией под эко-отель</a></h3>
+              <p class="meta">150 соток · Республика Карелия, Кондопожский</p>
+              <ul class="tags"><li>У воды</li><li>Лес</li><li class="ok">Проверка 1 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="207">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>2</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="14,12,15,11,13,10,12" role="img" aria-label="Просмотры за 7 дней ровные"></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p4.webp" width="560" height="385" alt="Луг и озеро вдали, летний день" loading="lazy">
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">6 900 000 ₽ <span>28 750 ₽ за сотку</span></p>
+              <h3 class="ttl"><a href="#detail">Массив 2,4 га под базу отдыха у реки</a></h3>
+              <p class="meta">240 соток · Ярославская область, Мышкинский</p>
+              <ul class="tags"><li>Река</li><li>Грант</li><li class="ok">Проверка 2 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="128">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>3</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="6,9,8,12,15,14,18" role="img" aria-label="Просмотры за 7 дней растут"></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p5.webp" width="560" height="385" alt="Летний луг с полевыми цветами у леса" loading="lazy">
+              <span class="badge">Строится</span>
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">3 400 000 ₽ <span>28 333 ₽ за сотку</span></p>
+              <h3 class="ttl"><a href="#detail">Участок 1,2 га с готовым подъездом и электричеством</a></h3>
+              <p class="meta">120 соток · Тверская область, Калязинский</p>
+              <ul class="tags"><li>Электричество</li><li>Подъезд круглый год</li><li class="ok">Проверка 4 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="264">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>5</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="12,16,15,22,20,25,31" role="img" aria-label="Просмотры за 7 дней растут"></svg>
+              </div>
+            </div>
+          </article>
+
+          <article class="card rv">
+            <a class="ph" href="#detail">
+              <img src="img/p6.webp" width="560" height="385" alt="Лодка на песчаном берегу озера" loading="lazy">
+              <button class="fav" type="button" aria-label="В избранное" aria-pressed="false"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 1 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+            </a>
+            <div class="body">
+              <p class="price">9 800 000 ₽ <span>работающая база</span></p>
+              <h3 class="ttl"><a href="#detail">Готовая база отдыха 3 га: шесть домов и причал</a></h3>
+              <p class="meta">300 соток · Республика Карелия, Пряжинский</p>
+              <ul class="tags"><li>Готовый бизнес</li><li>У воды</li><li class="ok">Проверка 3 из 5</li></ul>
+              <div class="stats">
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><b data-count="873">0</b></span>
+                <span class="s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><b>14</b></span>
+                <svg class="spark" width="76" height="22" viewBox="0 0 76 22" data-spark="18,24,22,30,36,33,44" role="img" aria-label="Просмотры за 7 дней растут"></svg>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <div class="more-row"><button class="btn btn-s" type="button">Показать ещё 54 объекта</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zone alt" id="rank" aria-labelledby="rank-h">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick">Ранжирование</p>
+      <h2 class="h2" id="rank-h">Почему объявление стоит именно здесь</h2>
+      <p class="sub">Порядок в каталоге считается по трём правилам. Продавец видит свою позицию и понимает, что на неё влияет, а покупатель не видит вверху пустые карточки без документов.</p>
+    </div>
+
+    <div class="rank">
+      <div class="rule rv">
+        <p class="n">1</p>
+        <h3>Проверенные документы</h3>
+        <p>Пять пунктов: собственник, кадастр, категория и назначение, обременения, границы на местности. Чем больше пройдено, тем выше.</p>
+        <div class="wgt"><div class="track" style="--w:45%"><i></i></div><p class="lbl"><span>вес в формуле</span><b>45</b></p></div>
+      </div>
+      <div class="rule rv">
+        <p class="n">2</p>
+        <h3>Свежесть и спрос</h3>
+        <p>Новые объявления получают запас на первые дни, дальше держатся те, которые чаще открывают и у которых чаще запрашивают телефон.</p>
+        <div class="wgt"><div class="track" style="--w:30%"><i></i></div><p class="lbl"><span>вес в формуле</span><b>30</b></p></div>
+      </div>
+      <div class="rule rv">
+        <p class="n">3</p>
+        <h3>Платный приоритет</h3>
+        <p>Поднимает объявление внутри выбранного фильтра на срок тарифа. Спорит с соседями по выдаче, но не заменяет проверку.</p>
+        <div class="wgt"><div class="track" style="--w:25%"><i></i></div><p class="lbl"><span>вес в формуле</span><b>25</b></p></div>
+      </div>
+    </div>
+
+    <div class="calc rv">
+      <p class="calc-h">Пример расчёта: <b>оплата решает спор близких, но не поднимает объявление без документов</b>. Участок с полной проверкой стоит выше платного приоритета, а карточка без выписки остаётся внизу даже после оплаты.</p>
+      <div class="tbl-scroll">
+        <table>
+          <caption class="sr">Пример расчёта позиции в каталоге</caption>
+          <thead>
+            <tr><th scope="col">Объявление</th><th scope="col" class="num">Документы</th><th scope="col" class="num">Спрос</th><th scope="col" class="num">Приоритет</th><th scope="col" class="num">Балл</th><th scope="col" class="num">Место</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Участок 6 га, Валдайский<br><span class="tsub">проверка 5 из 5, без оплаты</span></td><td class="num">45</td><td class="num">26</td><td class="num">0</td><td class="num">71</td><td class="num"><span class="pos top">1</span></td></tr>
+            <tr><td>Участок 0,8 га, Осташковский<br><span class="tsub">проверка 3 из 5, оплачен приоритет</span></td><td class="num">27</td><td class="num">18</td><td class="num">25</td><td class="num">70</td><td class="num"><span class="pos">2</span></td></tr>
+            <tr><td>Участок 1,5 га, Кондопожский<br><span class="tsub">проверка 1 из 5, без оплаты</span></td><td class="num">9</td><td class="num">11</td><td class="num">0</td><td class="num">20</td><td class="num"><span class="pos">9</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zone" id="detail" aria-labelledby="detail-h">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick">Как это видит покупатель</p>
+      <h2 class="h2" id="detail-h">Карточка объявления<span class="tag-new">счётчик</span></h2>
+      <p class="sub">Просмотры видны всем. Нажатие на телефон считается отдельно: это единственная метрика, которая показывает реальный интерес, а не случайный заход.</p>
+    </div>
+
+    <div class="detail">
+      <div>
+        <figure class="gal rv">
+          <div class="main">
+            <img src="img/d1.webp" width="1200" height="748" alt="Вид на озеро с участка вечером" id="gal-main" loading="lazy">
+            <span class="badge">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <b data-count="347">0</b> просмотров
+            </span>
+          </div>
+          <div class="strip">
+            <button type="button" data-full="img/d1.webp" aria-label="Береговая линия участка"><img src="img/t1.webp" width="280" height="175" alt="Береговая линия участка" loading="lazy"></button>
+            <button type="button" data-full="img/d2.webp" aria-label="Подъездная дорога вдоль границы"><img src="img/t2.webp" width="280" height="174" alt="Пологий берег на участке" loading="lazy"></button>
+            <button type="button" data-full="img/d3.webp" aria-label="Вид на озеро с участка"><img src="img/t3.webp" width="280" height="175" alt="Песчаный спуск к воде" loading="lazy"></button>
+            <button type="button" data-full="img/d4.webp" aria-label="Лес по северной границе"><img src="img/t4.webp" width="280" height="175" alt="Сосновый лес по границе участка" loading="lazy"></button>
+          </div>
+        </figure>
+
+        <div class="dbox rv">
+          <h3>Участок 0,8 га на первой линии у озера под глэмпинг</h3>
+          <p class="loc">Тверская область, Осташковский район, деревня Заречье</p>
+          <dl class="specs">
+            <div><dt>Площадь</dt><dd>80 соток, 0,8 га</dd></div>
+            <div><dt>Цена за сотку</dt><dd>52 500 ₽</dd></div>
+            <div><dt>Категория</dt><dd>Земли населённых пунктов</dd></div>
+            <div><dt>Назначение</dt><dd>Рекреация</dd></div>
+            <div><dt>Кадастр</dt><dd>69:27:3150644:8909</dd></div>
+            <div><dt>Коммуникации</dt><dd>Электричество</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <aside class="aside rv">
+        <p class="pr">4 200 000 ₽</p>
+        <p class="pp">52 500 ₽ за сотку</p>
+        <button class="btn btn-p btn-w" id="show-phone" type="button">Показать телефон</button>
+        <p class="phone" id="phone-out" aria-live="polite"></p>
+        <button class="btn btn-s btn-w" type="button">Запросить документы</button>
+        <div class="cnts">
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span><b data-count="347">0</b> просмотров всего</span></div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><span>телефон открывали <b data-count="89">0</b> раз</span></div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>опубликовано 4 дня назад</span></div>
+        </div>
+        <div class="seller">
+          <p class="av" aria-hidden="true">А</p>
+          <div>
+            <p class="sn">Александр</p>
+            <p class="sr">Собственник, на площадке с 2024</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="zone alt" id="cabinet" aria-labelledby="cab-h">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick">Как это видит продавец</p>
+      <h2 class="h2" id="cab-h">Кабинет продавца<span class="tag-new">отчёт</span></h2>
+      <p class="sub">Просмотры и показы телефона по каждому объявлению, динамика за полгода и сводка за месяц. Данные копятся со дня, когда счётчик поставлен, поэтому ставить его нужно до запуска.</p>
+    </div>
+
+    <div class="cab rv">
+      <div class="tbl-scroll">
+        <table>
+          <caption class="sr">Статистика объявлений продавца</caption>
+          <thead>
+            <tr><th scope="col">Объявление</th><th scope="col" class="num">Просмотры</th><th scope="col" class="num">Показы телефона</th><th scope="col" class="num">За 30 дней</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Участок 0,8 га у озера под глэмпинг</td><td class="num"><b data-count="347">0</b></td><td class="num"><b data-count="89">0</b></td><td class="num up">+112</td></tr>
+            <tr><td>Массив 2,4 га под базу отдыха</td><td class="num"><b data-count="128">0</b></td><td class="num"><b data-count="24">0</b></td><td class="num up">+40</td></tr>
+            <tr><td>Участок ИЖС 12 соток рядом с рекой</td><td class="num"><b data-count="87">0</b></td><td class="num"><b data-count="11">0</b></td><td class="num up">+19</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="report">
+        <div>
+          <p class="chart-cap">Просмотры по месяцам</p>
+          <div class="chart">
+            <div class="bar" style="--h:17%;--i:0"><i><em>210</em></i><span>Март</span></div>
+            <div class="bar" style="--h:27%;--i:1"><i><em>340</em></i><span>Апр</span></div>
+            <div class="bar" style="--h:42%;--i:2"><i><em>520</em></i><span>Май</span></div>
+            <div class="bar" style="--h:49%;--i:3"><i><em>610</em></i><span>Июнь</span></div>
+            <div class="bar" style="--h:71%;--i:4"><i><em>880</em></i><span>Июль</span></div>
+            <div class="bar cur" style="--h:100%;--i:5"><i><em>1240</em></i><span>Авг</span></div>
+          </div>
+        </div>
+        <div class="kpi">
+          <p class="k" data-count="1240">0</p>
+          <p class="kl">просмотров за август</p>
+          <p class="k2" data-count="312">0</p>
+          <p class="kl">показов телефона за август</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="zone" id="place" aria-labelledby="place-h">
+  <div class="wrap form-zone">
+    <div class="rv">
+      <p class="kick">Разместить участок</p>
+      <h2 class="h2" id="place-h">Публикация после проверки документов</h2>
+      <p class="sub">Оставьте кадастровый номер и телефон. Остальное заполним сами из выписки, вам останется добавить фотографии.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Проверяем выписку</h3><p>Собственник, категория, назначение, обременения, границы. Один рабочий день.</p></div></li>
+        <li><span class="n">2</span><div><h3>Собираем карточку</h3><p>Площадь, цена за сотку, координаты и коммуникации подставляются автоматически.</p></div></li>
+        <li><span class="n">3</span><div><h3>Публикуем и считаем</h3><p>Счётчик просмотров и показов телефона начинает работать с первого дня.</p></div></li>
+      </ol>
+    </div>
+
+    <form class="rv" id="place-form" novalidate>
+      <div class="fg" id="fg-kad">
+        <label for="kad">Кадастровый номер</label>
+        <input class="field" id="kad" name="kad" inputmode="numeric" placeholder="69:27:3150644:8909" autocomplete="off">
+        <p class="hint">Если номера нет под рукой, напишите адрес участка.</p>
+        <p class="err" id="err-kad">Заполните это поле</p>
+      </div>
+      <div class="fg" id="fg-tel">
+        <label for="tel">Телефон</label>
+        <input class="field" id="tel" name="tel" type="tel" inputmode="tel" placeholder="+7 900 000-00-00" autocomplete="tel">
+        <p class="err" id="err-tel">Нужен телефон, чтобы сообщить результат проверки</p>
+      </div>
+      <button class="btn btn-p btn-w" id="submit" type="submit">Отправить на проверку</button>
+      <p class="note">Нажимая кнопку, вы соглашаетесь с обработкой данных</p>
+      <p class="done" id="done" role="status">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+        <span>Заявка принята. Проверим выписку и позвоним в течение рабочего дня.</span>
+      </p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <p class="logo"><b>Биржа-Земли</b><span>Земля для туризма</span></p>
+        <p class="fdesc">Площадка поиска и продажи земли под базы отдыха, глэмпинги и туристические проекты по всей России.</p>
+      </div>
+      <nav aria-label="Каталог">
+        <h4>Каталог</h4>
+        <ul><li><a href="#catalog">Участки</a></li><li><a href="#catalog">Готовый бизнес</a></li><li><a href="#catalog">Строящиеся</a></li><li><a href="#catalog">Заявки покупателей</a></li></ul>
+      </nav>
+      <nav aria-label="Сервис">
+        <h4>Сервис</h4>
+        <ul><li><a href="#rank">Ранжирование</a></li><li><a href="#place">Разместить объявление</a></li><li><a href="#cabinet">Кабинет продавца</a></li><li><a href="#detail">Проверка земли</a></li></ul>
+      </nav>
+      <nav aria-label="Документы">
+        <h4>Документы</h4>
+        <ul><li><a href="#place">Правила размещения</a></li><li><a href="#place">Оферта</a></li><li><a href="#place">Обработка данных</a></li></ul>
+      </nav>
+    </div>
+    <div class="fbot">
+      <span>© Биржа-Земли, ИП Резниченко А. С.</span>
+      <span>Демонстрация интерфейса. Данные тестовые, объявления не реальные.<br>Фотографии: Викисклад, CC BY и CC BY-SA. Авторы: Aleksandr Ann, Ольга Слотвинская, Александр Спиридонов, Lyseria, Vityavo, Alex Evsikov, S Petr.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* тема */
+  try { var st = localStorage.getItem('bz-theme'); if (st) root.setAttribute('data-theme', st); } catch(e){}
+  document.getElementById('theme').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('bz-theme', next); } catch(e){}
+  });
+
+  document.getElementById('srch').addEventListener('submit', function(e){ e.preventDefault(); });
+
+  /* шапка */
+  var hdr = document.getElementById('hdr'), hero = document.querySelector('.hero');
+  var burger = document.getElementById('burger'), mnu = document.getElementById('mnu');
+  function onScroll(){ hdr.classList.toggle('solid', window.scrollY > hero.offsetHeight - 80 || mnu.classList.contains('open')); }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  /* мобильное меню */
+  burger.addEventListener('click', function(){
+    var open = mnu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    onScroll();
+  });
+  mnu.addEventListener('click', function(e){
+    if (e.target.closest('a')) { mnu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); onScroll(); }
+  });
+
+  /* фильтры на телефоне */
+  var filters = document.getElementById('filters'), veil = document.getElementById('veil');
+  function closeF(){ filters.classList.remove('open'); veil.classList.remove('open'); }
+  document.getElementById('f-open').addEventListener('click', function(){ filters.classList.add('open'); veil.classList.add('open'); });
+  document.getElementById('f-close').addEventListener('click', closeF);
+  veil.addEventListener('click', closeF);
+  addEventListener('keydown', function(e){ if (e.key === 'Escape') closeF(); });
+
+  /* избранное и чипы */
+  document.querySelectorAll('.fav').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+  });
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click', function(){ c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); });
+  });
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(x){ x.setAttribute('aria-selected','false'); });
+      t.setAttribute('aria-selected','true');
+    });
+  });
+
+  /* галерея */
+  var galMain = document.getElementById('gal-main');
+  document.querySelectorAll('.gal .strip button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var im = b.querySelector('img');
+      galMain.src = b.dataset.full; galMain.alt = im.alt;
+    });
+  });
+
+  /* телефон */
+  var sp = document.getElementById('show-phone'), po = document.getElementById('phone-out');
+  sp.addEventListener('click', function(){
+    po.textContent = '+7 900 214-88-02';
+    po.classList.add('show');
+    sp.textContent = 'Телефон открыт, засчитан показ';
+    sp.disabled = true;
+    sp.style.opacity = '.6';
+  });
+
+  /* спарклайны */
+  document.querySelectorAll('.spark').forEach(function(s){
+    var v = s.getAttribute('data-spark').split(',').map(Number);
+    var w = 76, h = 22, pad = 3, max = Math.max.apply(null, v), min = Math.min.apply(null, v);
+    var span = (max - min) || 1;
+    var pts = v.map(function(n, i){
+      var x = pad + i * (w - pad * 2) / (v.length - 1);
+      var y = h - pad - (n - min) / span * (h - pad * 2);
+      return x.toFixed(1) + ',' + y.toFixed(1);
+    });
+    s.innerHTML = '<polyline points="' + pts.join(' ') + '" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<circle cx="' + pts[pts.length-1].split(',')[0] + '" cy="' + pts[pts.length-1].split(',')[1] + '" r="2.4" fill="currentColor"/>';
+  });
+
+  /* форма */
+  var form = document.getElementById('place-form'), done = document.getElementById('done'), btn = document.getElementById('submit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    [['kad', function(v){ return v.length > 4; }], ['tel', function(v){ return (v.match(/\d/g) || []).length >= 10; }]].forEach(function(p){
+      var fld = document.getElementById(p[0]), grp = document.getElementById('fg-' + p[0]);
+      var good = p[1](fld.value.trim());
+      grp.classList.toggle('bad', !good);
+      if (!good && ok) { fld.focus(); ok = false; }
+    });
+    if (!ok) return;
+    btn.disabled = true; btn.textContent = 'Отправляем...';
+    setTimeout(function(){
+      form.querySelectorAll('.fg, .note').forEach(function(n){ n.style.display = 'none'; });
+      btn.style.display = 'none';
+      done.classList.add('show');
+    }, 700);
+  });
+  ['kad','tel'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){ document.getElementById('fg-' + id).classList.remove('bad'); });
+  });
+
+  /* появление и счётчики */
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll('.bar, .track').forEach(function(b){ b.classList.add('grow'); });
+      rio.unobserve(en.target);
+    });
+  }, {threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ rio.observe(el); });
+
+  function run(el){
+    var t = parseInt(el.getAttribute('data-count'), 10) || 0;
+    if (reduce) { el.textContent = t.toLocaleString('ru-RU'); return; }
+    var d = 1100, s = performance.now();
+    requestAnimationFrame(function step(now){
+      var p = Math.min(1, (now - s) / d), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(t * e).toLocaleString('ru-RU');
+      if (p < 1) requestAnimationFrame(step);
+    });
+  }
+  var cio = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); } });
+  }, {threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+})();
+</script>
+</body>
+</html>
