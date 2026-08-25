@@ -205,15 +205,15 @@ ul{list-style:none;padding:0}
 .f-close{display:grid;place-items:center;width:44px;height:44px;margin-right:-10px;border:0;background:transparent;color:var(--soft);border-radius:999px;cursor:pointer}
 @media (min-width:1000px){.f-close{display:none}}
 .fg{margin-bottom:16px}
-.fg > label{display:block;font-size:13px;color:var(--soft);margin-bottom:6px}
+.fg > label:not(.chk){display:block;font-size:13px;color:var(--soft);margin-bottom:6px}
 .field{width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line2);border-radius:var(--r-s);background:var(--surf2);font-size:15px}
 select.field{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B746D' stroke-width='2.4'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.chk{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;line-height:1.25;cursor:pointer}
-.chk input{position:relative;width:20px;height:20px;flex-shrink:0;margin:0;-webkit-appearance:none;appearance:none;border:1.5px solid var(--line2);border-radius:6px;background:var(--surf);cursor:pointer;transition:background .15s,border-color .15s}
+.chk{display:flex;align-items:center;gap:10px;min-height:42px;font-size:15px;line-height:1.2;cursor:pointer}
+.chk input{position:relative;width:20px;height:20px;flex:0 0 20px;margin:0;-webkit-appearance:none;appearance:none;border:2px solid var(--line2);border-radius:6px;background:var(--surf);cursor:pointer;transition:background .15s,border-color .15s}
 .chk:hover input{border-color:var(--action)}
 .chk input:checked{background:var(--action);border-color:var(--action)}
-.chk input::after{content:"";position:absolute;left:50%;top:48%;width:5px;height:9px;border:solid var(--on);border-width:0 2px 2px 0;transform:translate(-50%,-50%) rotate(45deg);opacity:0;transition:opacity .12s}
+.chk input::after{content:"";position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid var(--on);border-width:0 2px 2px 0;transform:rotate(45deg);opacity:0;transition:opacity .12s}
 .chk input:checked::after{opacity:1}
 .f-act{display:grid;gap:4px;margin-top:8px}
 .link-btn{min-height:44px;border:0;background:transparent;color:var(--soft);font-size:14px;cursor:pointer;border-radius:999px}
@@ -513,10 +513,10 @@ footer .logo span{color:var(--faint);opacity:1}
           <div class="two"><input class="field" inputmode="numeric" placeholder="от" aria-label="Площадь от"><input class="field" inputmode="numeric" placeholder="до" aria-label="Площадь до"></div>
         </div>
         <div class="fg">
-          <label class="chk"><input type="checkbox" checked> У воды</label>
-          <label class="chk"><input type="checkbox"> Электричество</label>
-          <label class="chk"><input type="checkbox"> Круглогодичный подъезд</label>
-          <label class="chk"><input type="checkbox"> Грантовый потенциал</label>
+          <label class="chk"><input type="checkbox" checked><span>У воды</span></label>
+          <label class="chk"><input type="checkbox"><span>Электричество</span></label>
+          <label class="chk"><input type="checkbox"><span>Круглогодичный подъезд</span></label>
+          <label class="chk"><input type="checkbox"><span>Грантовый потенциал</span></label>
         </div>
         <div class="f-act">
           <a class="btn btn-p btn-w" href="catalog.html">Показать 30 объекта</a>
