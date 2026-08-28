@@ -2,6 +2,9 @@
 """Собирает страницы демо из данных: главная, каталог, объявления, проверка земли."""
 
 import io, json, pathlib, re, html
+from блоки import (market_line, history_line, facts_block, project_block,
+                   partners_block, article_block, seller_block, club_line)
+from страницы import requests_page, cabinet_page, roadmap_page
 
 BASE = pathlib.Path(__file__).parent
 DATA = json.load(io.open(BASE / 'данные.json', encoding='utf-8'))
@@ -105,17 +108,17 @@ def page(title, desc, content, base='', nav_active=''):
     head = head.replace('href="assets/', 'href="%sassets/' % base).replace('src="assets/', 'src="%sassets/' % base)
     header = T('header')
     header = header.replace('href="#catalog"', 'href="%scatalog.html"' % base)
-    header = header.replace('href="#rank"', 'href="%scatalog.html#auction"' % base)
-    header = header.replace('href="#detail"', 'href="%scatalog.html#business"' % base)
+    header = header.replace('href="#rank"', 'href="%srequests.html"' % base)
+    header = header.replace('href="#detail"', 'href="%scabinet.html"' % base)
     header = header.replace('href="#cabinet"', 'href="%scheck.html"' % base)
     header = header.replace('href="#place"', 'href="%sindex.html#place"' % base)
     header = header.replace('href="#top"', 'href="%sindex.html"' % base)
-    header = header.replace('>Каталог<', '>Объекты<').replace('>Ранжирование<', '>Аукционы<')
-    header = header.replace('>Объявление<', '>Готовый бизнес<').replace('>Кабинет продавца<', '>Проверка земли<')
+    header = header.replace('>Каталог<', '>Объекты<').replace('>Ранжирование<', '>Заявки покупателей<')
+    header = header.replace('>Объявление<', '>Кабинет<').replace('>Кабинет продавца<', '>Проверка земли<')
     footer = T('footer')
-    for a, b in [('href="#catalog"', 'href="%scatalog.html"' % base), ('href="#rank"', 'href="%scatalog.html#auction"' % base),
-                 ('href="#detail"', 'href="%scheck.html"' % base), ('href="#cabinet"', 'href="%sindex.html#cabinet"' % base),
-                 ('href="#place"', 'href="%sindex.html#place"' % base)]:
+    for a, b in [('href="#catalog"', 'href="%scatalog.html"' % base), ('href="#rank"', 'href="%srequests.html"' % base),
+                 ('href="#detail"', 'href="%scheck.html"' % base), ('href="#cabinet"', 'href="%scabinet.html"' % base),
+                 ('href="#place"', 'href="%sroadmap.html"' % base)]:
         footer = footer.replace(a, b)
     parts = ['<!doctype html>', '<html lang="ru">', '<head>', head + '</head>', '<body>', header,
              '<main id="top">', content, '</main>', footer,
@@ -174,9 +177,15 @@ def catalog_page():
               <option value="rec">Сначала рекомендуемые</option><option value="new">Сначала новые</option>
               <option value="cheap">Дешевле</option><option value="exp">Дороже</option><option value="views">Больше просмотров</option>
             </select>
+            <button class="btn btn-s" id="save-search" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6M13.7 20a2 2 0 0 1-3.4 0"/></svg> Сохранить поиск</button>
           </div>
         </div>
         <div class="grid" id="grid">%s</div>
+        <div class="saved" id="saved" role="status" hidden>
+          <b>Поиск сохранён</b>
+          <p>Новые объекты по условиям «у воды, Тверская область, до 6 млн» будут приходить в телеграм
+            сразу после публикации. Отписаться можно одной командой в боте.</p>
+        </div>
         <p id="empty" style="display:none;padding:32px 0;color:var(--soft)">По этим условиям ничего не нашлось. Сбросьте фильтры или выберите другую категорию.</p>
       </div>
   </div>
@@ -248,15 +257,19 @@ def object_page(o):
           <dl class="specs">%(specs)s</dl>
           <p style="margin-top:18px;color:var(--soft);font-size:15px">%(desc)s</p>
         </div>
+        %(facts)s
+        %(project)s
+        %(article)s
+        %(partners)s
       </div>
       <aside class="aside rv">
         %(price_block)s
+        %(market)s
+        %(history)s
         %(actions)s
         <div class="cnts">%(views_line)s</div>
-        <div class="seller">
-          <p class="av" aria-hidden="true">А</p>
-          <div><p class="sn">Александр</p><p class="sr">Собственник, на площадке с 2024</p></div>
-        </div>
+        %(seller)s
+        %(club)s
       </aside>
     </div>
   </div>
@@ -274,7 +287,10 @@ def object_page(o):
         'district': html.escape(o['district']), 'place': html.escape(o['place']),
         'big': big, 'alt': html.escape(o['title']), 'eye': SVG['eye'], 'views': o['views'],
         'strip': strip, 'specs': specs_html, 'desc': html.escape(o['desc']),
-        'price_block': price_block, 'actions': actions, 'views_line': views_line, 'similar': similar_html}
+        'price_block': price_block, 'actions': actions, 'views_line': views_line, 'similar': similar_html,
+        'market': market_line(o), 'history': history_line(o), 'seller': seller_block(o), 'club': club_line(o),
+        'facts': facts_block(o), 'project': project_block(o), 'article': article_block(o),
+        'partners': partners_block()}
 
     return page(o['title'] + ', Биржа-Земли', o['desc'][:150], content, base='../')
 
@@ -366,6 +382,18 @@ if __name__ == '__main__':
     io.open(BASE / 'index.html', 'w', encoding='utf-8', newline='\n').write(index_page())
     io.open(BASE / 'catalog.html', 'w', encoding='utf-8', newline='\n').write(catalog_page())
     io.open(BASE / 'check.html', 'w', encoding='utf-8', newline='\n').write(check_page())
+    io.open(BASE / 'requests.html', 'w', encoding='utf-8', newline='\n').write(
+        page('Заявки покупателей, Биржа-Земли',
+             'Покупатели публикуют запросы на землю под базы отдыха, продавцы предлагают участки.',
+             requests_page()))
+    io.open(BASE / 'cabinet.html', 'w', encoding='utf-8', newline='\n').write(
+        page('Кабинет продавца, Биржа-Земли',
+             'Просмотры, показы телефона, воронка и сроки размещения по каждому объявлению.',
+             cabinet_page()))
+    io.open(BASE / 'roadmap.html', 'w', encoding='utf-8', newline='\n').write(
+        page('Что интегрируем в площадку, Биржа-Земли',
+             'Карта нововведений: собрано в демо и следующие этапы.',
+             roadmap_page()))
     for o in DATA:
         io.open(BASE / 'object' / (o['id'] + '.html'), 'w', encoding='utf-8', newline='\n').write(object_page(o))
-    print('готово: index, catalog, check и %d страниц объявлений' % len(DATA))
+    print('готово: index, catalog, check, requests, cabinet, roadmap и %d страниц объявлений' % len(DATA))

@@ -215,3 +215,50 @@
   }, { threshold: .5 });
   $$('[data-count]').forEach(function (el) { cio.observe(el); });
 })();
+
+/* калькулятор окупаемости в карточке объекта */
+(function () {
+  var box = document.getElementById('calc');
+  if (!box) return;
+  var unit = parseFloat(box.dataset.unit) || 3,
+      land = parseFloat(box.dataset.land) || 0,
+      elU = document.getElementById('units'),
+      elC = document.getElementById('check'),
+      elL = document.getElementById('load');
+
+  function mln(v) {
+    return (v >= 100 ? Math.round(v) : Math.round(v * 10) / 10).toLocaleString('ru-RU') + ' млн ₽';
+  }
+  function years(v) {
+    var y = Math.floor(v), m = Math.round((v - y) * 12);
+    if (m === 12) { y += 1; m = 0; }
+    var sy = y + ' ' + (y % 10 === 1 && y % 100 !== 11 ? 'год' : (y % 10 >= 2 && y % 10 <= 4 && (y % 100 < 10 || y % 100 >= 20) ? 'года' : 'лет'));
+    return m ? sy + ' ' + m + ' мес' : sy;
+  }
+  function calc() {
+    var u = +elU.value, c = +elC.value, l = +elL.value;
+    var build = u * unit, total = build + land;
+    var year = u * c * 365 * l / 100 / 1e6;
+    var profit = year * 0.42;
+    document.getElementById('cu').textContent = u;
+    document.getElementById('cc').textContent = c.toLocaleString('ru-RU') + ' ₽';
+    document.getElementById('cl').textContent = l + '%';
+    document.getElementById('o-total').textContent = mln(total);
+    document.getElementById('o-year').textContent = mln(year);
+    document.getElementById('o-profit').textContent = mln(profit);
+    document.getElementById('o-pay').textContent = profit > 0 ? years(total / profit) : '—';
+  }
+  [elU, elC, elL].forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
+})();
+
+/* сохранение поиска */
+(function(){
+  var b=document.getElementById('save-search'),s=document.getElementById('saved');
+  if(!b||!s)return;
+  b.addEventListener('click',function(){
+    s.hidden=false;b.disabled=true;b.style.opacity='.55';
+    b.textContent='Поиск сохранён';
+    s.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+})();

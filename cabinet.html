@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кабинет продавца, Биржа-Земли</title>
+<meta name="description" content="Просмотры, показы телефона, воронка и сроки размещения по каждому объявлению.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="index.html"><b>Биржа-Земли</b><span>Земля для туризма</span></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="catalog.html">Объекты</a>
+      <a href="requests.html">Заявки покупателей</a>
+      <a href="cabinet.html">Кабинет</a>
+      <a href="check.html">Проверка земли</a>
+    </nav>
+    <div class="hdr-r">
+      <button class="ico" id="theme" type="button" aria-label="Переключить тему">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="btn btn-p hdr-cta" href="index.html#place">Разместить участок</a>
+      <button class="ico burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mnu" id="mnu">
+  <a href="catalog.html">Объекты</a>
+  <a href="requests.html">Заявки покупателей</a>
+  <a href="cabinet.html">Кабинет</a>
+  <a href="check.html">Проверка земли</a>
+  <a class="btn btn-p" href="index.html#place">Разместить участок</a>
+</div>
+
+
+<main id="top">
+<section class="zone">
+  <div class="wrap">
+    <p class="kick">Кабинет продавца</p>
+    <h1 class="h2">Что происходит с объявлениями</h1>
+    <p class="sub">Просмотры и показы телефона по каждому объекту, воронка от показа в каталоге
+      до звонка и напоминания о сроках размещения. Данные копятся со дня установки счётчика.</p>
+
+    <div class="notice rv">
+      <span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6M13.7 20a2 2 0 0 1-3.4 0"/></svg></span>
+      <div>
+        <b>Приоритетное размещение заканчивается через 7 дней</b>
+        <p>За месяц объявление «Участок 0,8 га у озера» получило 347 просмотров и 89 показов телефона.
+          После окончания приоритета объявление опустится с 1 на 9 место в выдаче по запросу
+          «участок у воды в Тверской области».</p>
+        <div class="notice-act">
+          <button class="btn btn-p" type="button">Продлить за 2 400 ₽</button>
+          <button class="btn btn-s" type="button">Включить автопродление</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cab rv" style="margin-top:24px">
+      <div class="tbl-scroll">
+        <table>
+          <caption class="sr">Статистика объявлений</caption>
+          <thead><tr><th scope="col">Объявление</th><th scope="col" class="num">Просмотры</th>
+            <th scope="col" class="num">Показы телефона</th><th scope="col" class="num">За 30 дней</th></tr></thead>
+          <tbody><tr><td>Участок 0,8 га у озера под глэмпинг<span class="td-sub">Приоритет до 14 сентября</span></td><td class="num"><b data-count="347">0</b></td><td class="num"><b data-count="89">0</b></td><td class="num up">+112</td></tr><tr><td>Массив 2,4 га под базу отдыха<span class="td-sub">Обычное размещение</span></td><td class="num"><b data-count="128">0</b></td><td class="num"><b data-count="24">0</b></td><td class="num up">+40</td></tr><tr><td>Участок ИЖС 12 соток рядом с рекой<span class="td-sub">Обычное размещение</span></td><td class="num"><b data-count="87">0</b></td><td class="num"><b data-count="11">0</b></td><td class="num up">+19</td></tr></tbody>
+        </table>
+      </div>
+      <div class="report">
+        <div>
+          <p class="chart-cap">Просмотры по месяцам</p>
+          <div class="chart"><div class="bar" style="--h:17%;--i:0"><i><em>210</em></i><span>Март</span></div><div class="bar" style="--h:27%;--i:1"><i><em>340</em></i><span>Апрель</span></div><div class="bar" style="--h:42%;--i:2"><i><em>520</em></i><span>Май</span></div><div class="bar" style="--h:49%;--i:3"><i><em>610</em></i><span>Июнь</span></div><div class="bar" style="--h:71%;--i:4"><i><em>880</em></i><span>Июль</span></div><div class="bar cur" style="--h:100%;--i:5"><i><em>1240</em></i><span>Август</span></div></div>
+        </div>
+        <div class="kpi">
+          <p class="k" data-count="1240">0</p><p class="kl">просмотров за август</p>
+          <p class="k2" data-count="312">0</p><p class="kl">показов телефона за август</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col rv">
+      <div class="dbox">
+        <h2 class="dbox-h">Воронка по объявлению</h2>
+        <p class="dbox-sub">Видно, где теряется покупатель: слабое фото в каталоге или цена в карточке.</p>
+        <ul class="funnel"><li><div class="fu-bar" style="--w:100%"><i></i></div><div class="fu-t"><b data-count="4180">0</b><span>Показы в каталоге</span></div><span class="fu-c">все показы</span></li><li><div class="fu-bar" style="--w:13%"><i></i></div><div class="fu-t"><b data-count="347">0</b><span>Открытия карточки</span></div><span class="fu-c">из показов 8%</span></li><li><div class="fu-bar" style="--w:13%"><i></i></div><div class="fu-t"><b data-count="89">0</b><span>Показы телефона</span></div><span class="fu-c">из показов 26%</span></li></ul>
+      </div>
+      <div class="dbox">
+        <h2 class="dbox-h">Уведомления</h2>
+        <p class="dbox-sub">Приходят в телеграм, а не на почту.</p>
+        <ul class="notif">
+          <li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 3-9 18-2.5-7.5L2 11Z"/></svg></span><div><b>Телефон открыли 3 раза за сутки</b><p>Участок 0,8 га у озера · сегодня 14:20</p></div></li>
+          <li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 3-9 18-2.5-7.5L2 11Z"/></svg></span><div><b>Новая заявка покупателя в вашем районе</b><p>Глэмпинг на 8 куполов, до 6 млн · вчера</p></div></li>
+          <li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6M13.7 20a2 2 0 0 1-3.4 0"/></svg></span><div><b>Размещение заканчивается через 7 дней</b><p>Сводка результатов и продление в один клик · вчера</p></div></li>
+          <li><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 3-9 18-2.5-7.5L2 11Z"/></svg></span><div><b>Объявление опустилось на 4 позиции</b><p>Конкурент включил приоритет · 3 дня назад</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <p class="logo"><b>Биржа-Земли</b><span>Земля для туризма</span></p>
+        <p class="fdesc">Площадка поиска и продажи земли под базы отдыха, глэмпинги и туристические проекты по всей России.</p>
+      </div>
+      <nav aria-label="Каталог">
+        <h4>Каталог</h4>
+        <ul><li><a href="catalog.html">Участки</a></li><li><a href="catalog.html">Готовый бизнес</a></li><li><a href="catalog.html">Строящиеся</a></li><li><a href="catalog.html">Заявки покупателей</a></li></ul>
+      </nav>
+      <nav aria-label="Сервис">
+        <h4>Сервис</h4>
+        <ul><li><a href="requests.html">Ранжирование</a></li><li><a href="roadmap.html">Разместить объявление</a></li><li><a href="cabinet.html">Кабинет продавца</a></li><li><a href="check.html">Проверка земли</a></li></ul>
+      </nav>
+      <nav aria-label="Документы">
+        <h4>Документы</h4>
+        <ul><li><a href="roadmap.html">Правила размещения</a></li><li><a href="roadmap.html">Оферта</a></li><li><a href="roadmap.html">Обработка данных</a></li></ul>
+      </nav>
+    </div>
+    <div class="fbot">
+      <span>© Биржа-Земли, ИП Резниченко А. С.</span>
+      <span>Демонстрация интерфейса. Данные тестовые, объявления не реальные.<br>Фотографии: Викисклад, CC BY и CC BY-SA. Авторы: Aleksandr Ann, Ольга Слотвинская, Александр Спиридонов, Lyseria, Vityavo, Alex Evsikov, S Petr.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

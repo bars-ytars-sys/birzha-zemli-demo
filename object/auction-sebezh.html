@@ -14,8 +14,8 @@
     <a class="logo" href="../index.html"><b>Биржа-Земли</b><span>Земля для туризма</span></a>
     <nav class="nav" aria-label="Разделы">
       <a href="../catalog.html">Объекты</a>
-      <a href="../catalog.html#auction">Аукционы</a>
-      <a href="../catalog.html#business">Готовый бизнес</a>
+      <a href="../requests.html">Заявки покупателей</a>
+      <a href="../cabinet.html">Кабинет</a>
       <a href="../check.html">Проверка земли</a>
     </nav>
     <div class="hdr-r">
@@ -32,8 +32,8 @@
 
 <div class="mnu" id="mnu">
   <a href="../catalog.html">Объекты</a>
-  <a href="../catalog.html#auction">Аукционы</a>
-  <a href="../catalog.html#business">Готовый бизнес</a>
+  <a href="../requests.html">Заявки покупателей</a>
+  <a href="../cabinet.html">Кабинет</a>
   <a href="../check.html">Проверка земли</a>
   <a class="btn btn-p" href="../index.html#place">Разместить участок</a>
 </div>
@@ -59,15 +59,57 @@
           <dl class="specs"><div><dt>Площадь</dt><dd>70 соток</dd></div><div><dt>Категория</dt><dd>Земли населённых пунктов</dd></div><div><dt>Назначение</dt><dd>ИЖС</dd></div><div><dt>Кадастр</dt><dd>60:22:0130201:15</dd></div><div><dt>Коммуникации</dt><dd>Электричество по границе</dd></div><div><dt>Проверка документов</dt><dd>3 из 5 пунктов</dd></div></dl>
           <p style="margin-top:18px;color:var(--soft);font-size:15px">Национальный парк рядом, берег пологий. Торги закрываются через сутки.</p>
         </div>
+        <div class="dbox rv"><h2 class="dbox-h">Что важно для базы отдыха</h2><ul class="facts"><li><span class="i"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21 8 3M20 21 16 3M12 5v3M12 11v3M12 17v3"/></svg></span><div><b>Дорога</b><p>Москва 8 ч, Петербург 4 ч 30 мин. До асфальта 0 км</p></div></li><li><span class="i"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 6-10 6-10Z"/></svg></span><div><b>Вода</b><p>До воды 100 м, река. Береговая полоса 20 м общего пользования, водоохранная зона 200 м: капитальное строительство ограничено</p></div></li><li><span class="i"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M7 16V9M12 16V5M17 16v-4"/></svg></span><div><b>Район</b><p>18 действующих баз в радиусе 30 км, средняя загрузка 42%</p></div></li></ul></div>
+        <div class="dbox rv project" id="calc"
+     data-unit="2.543" data-land="0.810" data-check="11500" data-load="40">
+  <div class="pj-top">
+    <div>
+      <h2 class="dbox-h">Что здесь можно построить</h2>
+      <p class="dbox-sub">Подобрано по площади и рельефу участка. Проект «Альпийская деревня» из каталога
+        готовых решений, цифры считаются по данным реализованных объектов.</p>
+    </div>
+    <span class="pj-fmt">глэмпинг</span>
+  </div>
+
+  <div class="pj-grid">
+    <label class="pj-ctrl">
+      <span class="pj-l">Модулей на участке <b id="cu">7</b></span>
+      <input type="range" id="units" min="2" max="24" value="7" step="1">
+    </label>
+    <label class="pj-ctrl">
+      <span class="pj-l">Средний чек за ночь <b id="cc">11 500 ₽</b></span>
+      <input type="range" id="check" min="4000" max="18000" value="11500" step="500">
+    </label>
+    <label class="pj-ctrl">
+      <span class="pj-l">Загрузка за год <b id="cl">40%</b></span>
+      <input type="range" id="load" min="25" max="75" value="40" step="1">
+    </label>
+  </div>
+
+  <div class="pj-out">
+    <div class="pj-cell"><span>Вложения с землёй</span><b id="o-total">—</b></div>
+    <div class="pj-cell"><span>Выручка в год</span><b id="o-year">—</b></div>
+    <div class="pj-cell"><span>Прибыль в год</span><b id="o-profit">—</b></div>
+    <div class="pj-cell hi"><span>Окупаемость</span><b id="o-pay">—</b></div>
+  </div>
+  <p class="pj-note">Расчёт ориентировочный: маржа принята 42%, инфраструктура 34% от стоимости модулей.
+    Точная модель считается на консультации.</p>
+  <div class="pj-act">
+    <button class="btn btn-p" type="button">Рассчитать проект под этот участок</button>
+    <button class="btn btn-s" type="button">Смотреть проект «Альпийская деревня»</button>
+  </div>
+</div>
+        <a class="know rv" href="#"><span class="i"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Z"/><path d="M8 7h7M8 11h7"/></svg></span><div><b>Водоохранная зона: что можно и нельзя строить у воды</b><p>Двадцать метров береговой полосы, пятьдесят и двести метров ограничений.</p></div><span class="min">6 мин</span></a>
+        <div class="dbox rv"><h2 class="dbox-h">Подрядчики под этот проект</h2><p class="dbox-sub">Проверенные партнёры площадки, цены ориентировочные.</p><ul class="partners"><li><b>Модульные дома</b><p>Каркасные и модульные дома от 24 до 60 м², сборка за 30 дней</p><span>от 2,6 млн</span></li><li><b>Купольные шатры</b><p>Геокупола и сафари-тенты, всесезонное исполнение</p><span>от 1,1 млн</span></li><li><b>Бани и чаны</b><p>Банные комплексы, купели, чаны на дровах</p><span>от 480 тыс</span></li><li><b>Вода и канализация</b><p>Скважина, септик, разводка по участку</p><span>от 320 тыс</span></li><li><b>Электрификация</b><p>Технические условия, подключение, автономные решения</p><span>от 210 тыс</span></li><li><b>Дороги и площадки</b><p>Подъезд, парковка, дренаж, отсыпка</p><span>от 180 тыс</span></li></ul></div>
       </div>
       <aside class="aside rv">
         <p class="pp">текущая ставка</p><p class="pr">810 000 ₽</p><dl class="specs" style="grid-template-columns:1fr;margin-top:14px"><div><dt>Стартовая цена</dt><dd>650 000 ₽</dd></div><div><dt>Шаг</dt><dd>20 000 ₽</dd></div><div><dt>Ставок</dt><dd>9</dd></div><div><dt>До конца торгов</dt><dd>1 день 22:05</dd></div></dl>
+        
+        
         <button class="btn btn-p btn-w" data-phone="phone-out" type="button">Сделать ставку</button><p class="phone" id="phone-out" aria-live="polite"></p><button class="btn btn-s btn-w" type="button">Запросить документы</button>
         <div class="cnts"><div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span><b data-count="403">0</b> просмотров всего</span></div><div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg><span>телефон открывали <b data-count="37">0</b> раз</span></div><div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>опубликовано 3 дн. назад</span></div></div>
-        <div class="seller">
-          <p class="av" aria-hidden="true">А</p>
-          <div><p class="sn">Александр</p><p class="sr">Собственник, на площадке с 2024</p></div>
-        </div>
+        <div class="seller"><p class="av" aria-hidden="true">А</p><div><p class="sn">Александр</p><p class="sr">Агентство, сделок на площадке 2</p><p class="sr">Отвечает в среднем за 16 мин</p><span class="ver"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6Z"/><path d="m9 12 2 2 4-4"/></svg> Личность подтверждена</span></div></div>
+        
       </aside>
     </div>
   </div>
@@ -147,11 +189,11 @@
       </nav>
       <nav aria-label="Сервис">
         <h4>Сервис</h4>
-        <ul><li><a href="../catalog.html#auction">Ранжирование</a></li><li><a href="../index.html#place">Разместить объявление</a></li><li><a href="../index.html#cabinet">Кабинет продавца</a></li><li><a href="../check.html">Проверка земли</a></li></ul>
+        <ul><li><a href="../requests.html">Ранжирование</a></li><li><a href="../roadmap.html">Разместить объявление</a></li><li><a href="../cabinet.html">Кабинет продавца</a></li><li><a href="../check.html">Проверка земли</a></li></ul>
       </nav>
       <nav aria-label="Документы">
         <h4>Документы</h4>
-        <ul><li><a href="../index.html#place">Правила размещения</a></li><li><a href="../index.html#place">Оферта</a></li><li><a href="../index.html#place">Обработка данных</a></li></ul>
+        <ul><li><a href="../roadmap.html">Правила размещения</a></li><li><a href="../roadmap.html">Оферта</a></li><li><a href="../roadmap.html">Обработка данных</a></li></ul>
       </nav>
     </div>
     <div class="fbot">
